@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>AZEROTHS’PCS-CrearPC</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="CSSCrearPc.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarfijado">
+      <a class="navbar-brand" href="../Portada.html">AZEROTHS’PCS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../Inicio/Inicio.html"> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Info/Informacion.html">Información</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../IniSes/InicioSesion.html">Iniciar sesión</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Tienda<span class="sr-only">(current)</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="PcSobremesa.html">PCS Sobremesa</a>
+              <a class="dropdown-item" href="PcPortatil.html">Portátiles</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="CrearPc.html">Crea tu propio ordenador</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <form class="needs-validation formulario" novalidate>
+    <div class="form-group">
+      <label for="procesador">CREA TU PROPIO PC SOBREMESA
+        <br>Procesador</label>
+      <select class="form-control" id="procesador">
+        <option>*</option>
+        <option>Intel Core i3-7350K 4.2Ghz BOX</option>
+        <option>Intel Core i5-7400 3.0GHz BOX</option>
+        <option>Intel Core I7-7700 3.6GHz BOX</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="placabase">Placa Base</label>
+      <select class="form-control" id="placabase">
+        <option>*</option>
+        <option>Asus H110M-D MP</option>
+        <option>Asus Prime B250M-A</option>
+        <option>Gigabyte GA-Z270P-D3</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ram">Memoria RAM</label>
+      <select class="form-control" id="ram">
+        <option>*</option>
+        <option>Crucial DDR4 2400 PC4-19200 8GB CL17</option>
+        <option>G.Skill Trident Z RGB DDR4 3200 PC4-25600 16GB 2x8GB CL16</option>
+        <option>Corsair Vengeance LPX DDR4 3000 PC4-24000 16GB 2x8GB CL15</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ventiladorcpu">Ventilador CPU</label>
+      <select class="form-control" id="ventiladorcpu">
+        <option>*</option>
+        <option>Nfortec Vela KX CPU Cooler</option>
+        <option>Nfortec Hydrus 240 Kit Refrigeración líquida Roja</option>
+        <option>Corsair Hydro H100x Kit de Refrigeración Líquida</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="discoduro">Disco Duro</label>
+      <select class="form-control" id="discoduro">
+        <option>*</option>
+        <option>Seagate BarraCuda 3.5" 1TB SATA3</option>
+        <option>Toshiba OCZ TR200 SSD 240GB SATA3</option>
+        <option>Kingston A400 SSD 240GB</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="caja">Caja</label>
+      <select class="form-control" id="caja">
+        <option>*</option>
+        <option>Tempest Spectra RGB USB 3.0 con Ventana</option>
+        <option>Nfortec Draco V2 Cristal Templado USB 3.0 RGB Negra</option>
+        <option>Owlotech EVO USB 3.0 500W</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="falimentacion">Fuente de alimentación</label>
+      <select class="form-control" id="falimentacion">
+        <option>*</option>
+        <option>Tempest Gaming GPSU Fuente de Alimentación 750W</option>
+        <option>Owlotech BPS Fuente Alimentación 600W</option>
+        <option>Nfortec Scutum PSU Fuente de Alimentacion 650W 80 Plus Bronze</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="grafica">Targeta gráfica</label>
+      <select class="form-control" id="grafica">
+        <option>*</option>
+        <option>Zotac GeForce GTX 1060 AMP ! Edition 6GB GDDR5X</option>
+        <option>Gigabyte GeForce RTX 2060 OC 6GB GDDR6</option>
+        <option>Gigabyte GeForce RTX 2070 WindForce 8G 8GB GDDR6</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="montaje">Montaje</label>
+      <select class="form-control" id="montaje">
+        <option>*</option>
+        <option>SI</option>
+        <option>NO</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="iso">Instalación de ISO y Controladores</label>
+      <select class="form-control" id="iso">
+        <option>*</option>
+        <option>SI</option>
+        <option>NO</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Acepto los términos y condiciones
+        </label>
+        <div class="invalid-feedback">
+          Debes aceptar los términos y condiciones antes de enviar la petición.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#ModalIS">Realizar
+      pedido</button>
+    <div class="modal fade" id="ModalIS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><span class="colorNegro">Ha iniciado sesión correctamente.
+            </h5></span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span class="colorNegro">Ahora ya puedes continuar navegando nuestra web</span>
+          </div>
+          <div class="modal-footer">
+            <a type="button" class="btn btn-primary" href="../Inicio/Inicio.html">Ir a AZEROTHS’PCS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <footer class="jumbotron bg-info text-center m-0 piePagina">
+    <h1 class="display 2">© AZEROTHS’PCS 2018-2019</h1>
+  </footer>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

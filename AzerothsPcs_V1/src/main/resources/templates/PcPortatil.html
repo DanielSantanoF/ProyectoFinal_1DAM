@@ -1,55 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <title>AZEROTHS’PCS-PcPortátil</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="../CSS/CSSPcs.css" rel="stylesheet">
+  <link href="css/CSSPcs.css" rel="stylesheet">
 </head>
 
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarfijado">
-      <a class="navbar-brand" href="Portada.html">AZEROTHS’PCS</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="Inicio.html"> Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Informacion.html">Información</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="InicioSesion.html">Iniciar sesión</a>
-          </li>
-          <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Tienda<span class="sr-only">(current)</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="PcSobremesa.html">PCS Sobremesa</a>
-              <a class="dropdown-item" href="PcPortatil.html">Portátiles</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="CrearPc.html">Crea tu propio ordenador</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </div>
-    </nav>
-  </header>
+    <div th:replace="Navbar.html :: navbar"></div>
+    </header>
 
 
   <main role="main">
@@ -58,7 +22,7 @@
         <div class="col-md-6">
           <h2>Lenovo Ideapad 330 Intel Core i7-8750H/16GB/1TB+256 SSD/GTX 1050/15.6" - 999€</h2>
           <p>PC Portátil ideal para tu oficina con un rendimiento adecuado para trabajos multimedia. </p>
-          <img src="../static/img/LenovoIdeapad.jpg">
+          <img src="img/LenovoIdeapad.jpg">
           <h3>Caracteristicas:</h3>
           <ul>
             <li>Procesador Intel Core i7-8750H+HM370 (6 núcleos, 2,2 GHz - 4,1 GHz, 9 MB)</li>
@@ -89,7 +53,7 @@
         <div class="col-md-6">
           <h2>MSI GP73 Leopard 8RE-658XES Intel Core i7-8750H/16GB/1TB+256GB SSD/GTX 1060/17.3" - 1349€</h2>
           <p>PC Portátil ideal para gaming centrado en el alto rendimiento. </p>
-          <img src="../static/img/msiGP73.jpg">
+          <img src="img/msiGP73.jpg">
           <h3>Caracteristicas:</h3>
           <ul>
             <li>Procesador Coffeelake i7-8750H+HM370 (6 núcleos, 2,2 GHz - 4,1 GHz, 9 MB)</li>
@@ -128,9 +92,9 @@
 
   </main>
 
-  <footer class="jumbotron bg-info text-center m-0 piePagina">
-    <h1 class="display 2">© AZEROTHS’PCS 2018-2019</h1>
-  </footer>
+  <footer>
+    <div th:replace="Footer.html :: footer"></div>
+    </footer>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

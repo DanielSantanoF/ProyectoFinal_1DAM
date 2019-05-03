@@ -3,8 +3,7 @@ package com.salesianostriana.dam.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +16,7 @@ public class Producto {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
+	private String nombre;
 	private String descripcion;
 	private double precio;
 	private boolean enOferta;
@@ -26,9 +26,10 @@ public class Producto {
 	private String imagen;
 	private String marca;
 	
-	public Producto(String descripcion, double precio, boolean enOferta, double descuento, int cantidad,
+	public Producto(String nombre, String descripcion, double precio, boolean enOferta, double descuento, int cantidad,
 			boolean disponible, String imagen, String marca) {
-		
+		super();
+		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.enOferta = enOferta;
@@ -38,6 +39,8 @@ public class Producto {
 		this.imagen = imagen;
 		this.marca = marca;
 	}
+	
+	
 	
 	
 

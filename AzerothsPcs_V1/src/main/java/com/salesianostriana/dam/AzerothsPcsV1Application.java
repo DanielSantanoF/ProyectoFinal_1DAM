@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.azerothspcs_v1;
+package com.salesianostriana.dam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

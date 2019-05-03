@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <title>AZEROTHS’PCS</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="../CSS/CSSPortada.css" rel="stylesheet">
+  <link href="css/CSSPortada.css" rel="stylesheet">
 </head>
 
 <body>
@@ -45,9 +45,11 @@
     </div>
 
   </div>
-  <footer class="jumbotron bg-info text-center m-0">
-    <h1 class="display 2">© AZEROTHS’PCS 2018-2019</h1>
-  </footer>
+
+  <footer>
+    <div th:replace="Footer.html :: footer"></div>
+    </footer>
+  
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

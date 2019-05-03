@@ -6,50 +6,14 @@
   <title>AZEROTHS’PCS-Inicio</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="../CSS/CSSInicio.css" rel="stylesheet">
+  <link href="css/CSSInicio.css" rel="stylesheet">
 </head>
 
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarfijado">
-      <a class="navbar-brand" href="Portada.html">AZEROTHS’PCS</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="Inicio.html"> Inicio<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Informacion.html">Información</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="InicioSesion.html">Iniciar sesión</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Tienda
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="PcSobremesa.html">PCS Sobremesa</a>
-              <a class="dropdown-item" href="PcPortatil.html">Portátiles</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="CrearPc.html">Crea tu propio ordenador</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </div>
-    </nav>
-  </header>
+    <div th:replace="Navbar.html :: navbar"></div>
+    </header>
 
 
   <div id="carouselId" class="carousel slide" data-ride="carousel">
@@ -60,7 +24,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item">
-        <img class="first-slide" src="../static/img/marca1.jpg" alt="First slide">
+        <img class="first-slide" src="img/marca1.jpg" alt="First slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block text-left">
             <h1>Nvidia</h1>
@@ -71,7 +35,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide" src="../static/img/marca2.jpg" alt="Second slide">
+        <img class="second-slide" src="img/marca2.jpg" alt="Second slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block">
             <h1>Intel</h1>
@@ -83,7 +47,7 @@
         </div>
       </div>
       <div class="carousel-item active">
-        <img class="third-slide" src="../static/img/marca3.jpg" alt="Third slide">
+        <img class="third-slide" src="img/marca3.jpg" alt="Third slide">
         <div class="container">
           <div class="carousel-caption d-none d-md-block text-right">
             <h1>MSI</h1>
@@ -108,24 +72,24 @@
 
     <div class="row">
       <div class="col-lg-4">
-        <img class="rounded-circle" src="../static/img/iconoSobremesa.png" alt="Generic placeholder image" width="140"
+        <img class="rounded-circle" src="img/iconoSobremesa.png" alt="Generic placeholder image" width="140"
           height="140">
         <h2>PCS Sobremesa</h2>
         <p>¡Revisa los ordenadores sobremesa disponibles en nuestra tienda!</p>
         <p><a class="btn btn-secondary" href="PcSobremesa.html" role="button">Ver PCS Sobremesa »</a></p>
       </div>
       <div class="col-lg-4">
-        <img class="rounded-circle" src="../static/img/iconoPortatil.png" alt="Generic placeholder image" width="140"
+        <img class="rounded-circle" src="img/iconoPortatil.png" alt="Generic placeholder image" width="140"
           height="140">
         <h2>Portátiles</h2>
         <p>¡Revisa los ordenadores portátiles disponibles en nuestra tienda!</p>
         <p><a class="btn btn-secondary" href="PcPortatil.html" role="button">Ver Portátiles »</a></p>
       </div>
       <div class="col-lg-4">
-        <img class="rounded-circle" src="../static/img/iconoTecnico.png" alt="Generic placeholder image" width="140"
+        <img class="rounded-circle" src="img/Accesorios.png" alt="Generic placeholder image" width="140"
           height="140">
-        <h2>Crea tu propio ordenador</h2>
-        <p>¡O bien elige los componentes y nuestros tecnicos montaran tu ordenador de los sueños!</p>
+        <h2>Accesorios</h2>
+        <p>¡Revisa los Accesorios disponibles en nuestra tienda!</p>
         <p><a class="btn btn-secondary" href="CrearPc.html" role="button">Ver detalles »</a></p>
       </div>
     </div>
@@ -144,7 +108,7 @@
       </div>
       <div class="col-md-5">
         <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-          style="width: 500px; height: 500px;" src="../static/img/LenovoIdeapad.jpg" data-holder-rendered="true">
+          style="width: 500px; height: 500px;" src="img/LenovoIdeapad.jpg" data-holder-rendered="true">
       </div>
     </div>
 
@@ -158,7 +122,7 @@
       </div>
       <div class="col-md-5 pull-md-7">
         <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-          src="../static/img/msiGP73.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+          src="img/msiGP73.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
       </div>
     </div>
 
@@ -173,7 +137,7 @@
       </div>
       <div class="col-md-5">
         <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-          src="../static/img/AzerothPC.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+          src="img/AzerothPC.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
       </div>
     </div>
 
@@ -181,7 +145,9 @@
 
   </div>
 
-  <div th:replace="Footer.html :: footer"></div>
+  <footer>
+    <div th:replace="Footer.html :: footer"></div>
+    </footer>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -39,6 +39,21 @@ public class Producto {
 		this.imagen = imagen;
 		this.marca = marca;
 	}
+
+	public Producto(String nombre, String descripcion, double precio, int cantidad, String imagen, String marca) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.cantidad = cantidad;
+		this.imagen = imagen;
+		this.marca = marca;
+	}
+
+	//CONSTRUCTO PARA PRODAR A AÑADIR PRODUCTOS
+	
+	
+	
 	
 	
 	

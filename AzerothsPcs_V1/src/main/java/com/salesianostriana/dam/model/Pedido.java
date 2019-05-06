@@ -23,6 +23,9 @@ public class Pedido {
 	@ManyToOne
 	private LineaDePedido lineasPedido;
 	
+	@ManyToOne
+	private Usuario usuarioDelPedido;
+	
 	public Pedido(double precioFinal, long idUsuario) {
 		
 		this.precioFinal = precioFinal;

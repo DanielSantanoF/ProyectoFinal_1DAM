@@ -25,8 +25,6 @@ public class PruebaController {
 				549.5, false, 0, 1, true, "none", "HP", "Procesador(Intel Core i5-8400 6 núcleos 2.8 a 4 Ghz 9 MB Caché)", 8, "Disco_duro(SATA de 1 TB 7200 rpm)", "Sistema_operativo(Windows 10 Home 64 Bits)",
 				"Sobremesa", "Dimensiones(10 x 32 x 27.7 cm)"));
 		return "PcSobremesa";
-		//String descripcion, double precio, boolean enOferta, double descuento, int cantidad,
-		//boolean disponible, String imagen, String marca, String procesador, int ram, String discoDuro,
-		//String sistemaOperativo, String tipo, String dimensiones
+		
 	}
 }

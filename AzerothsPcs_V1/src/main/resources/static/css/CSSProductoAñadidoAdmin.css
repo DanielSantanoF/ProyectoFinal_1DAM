@@ -1,0 +1,54 @@
+table {
+    border: solid 1px white;
+}
+
+thead {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: grey;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: grey;
+}
+
+th, td {
+    padding: 0.2em;
+    min-width: 5em;
+}
+td.enhanced {
+    font-weight: bold;
+    color: black;
+}
+.navbarfijado{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  body {
+    padding-top: 3.5rem;
+    background-image: url(../img/fondo2.jpg);
+    color: white;
+  }
+  .piePagina{
+    border: none;
+    border-radius: 0%;
+    margin: 0%;
+    background: none !important;
+  }
+  
+  .formulario{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .colorNegro{
+    color: black;
+  }

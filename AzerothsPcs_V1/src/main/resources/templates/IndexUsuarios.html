@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>AZEROTHS’PCS-IndexUsuarios</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/CSSIndexUsuarios.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div th:replace="Navbar.html :: navbar"></div>
+
+    <div id="menu" class="opcionesMenu">
+            <a th:href="@{/listUsuarios}">Inicio</a> | <a th:href="@{/nuevo}">Nuevo usuario</a>
+    </div>
+        <br /><br />
+        <table border=2>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Contraseña</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${lista}">
+                    <td th:text="${usuario.id}">1</td>
+                    <td th:text="${usuario.nombre}">Nombre</td>
+                    <td th:text="${usuario.apellidos}">Apellidos</td>
+                    <td th:text="${usuario.dni}">DNI</td>
+                    <td th:text="${usuario.contrasenya}">Contraseña</td>
+                    <td th:text="${usuario.email}">Email</td>
+                    <td th:text="${usuario.admin}">Admin</td>
+                    <td>
+                        <a href="#" th:href="@{/editar/{id}(id=${usuario.id})}">Editar</a> | 
+                        <a href="#" th:href="@{/borrar/{id}(id=${usuario.id})}">Borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    <div th:replace="Footer.html :: footer"></div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

@@ -1,29 +1,3 @@
-table {
-    border: solid 1px white;
-}
-
-thead {
-    background-color: white;
-    font-weight: bold;
-    color: black;
-}
-
-tbody tr:nth-child(even) {
-    background-color: grey;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: grey;
-}
-
-th, td {
-    padding: 0.2em;
-    min-width: 5em;
-}
-td.enhanced {
-    font-weight: bold;
-    color: black;
-}
 .navbarfijado{
     position: fixed;
     top: 0;
@@ -41,14 +15,28 @@ td.enhanced {
     border-radius: 0%;
     margin: 0%;
     background: none !important;
-  }
-  
+  } 
   .formulario{
     width: 50%;
     margin-left: 25%;
     margin-top: 5%;
     margin-bottom: 5%;
   }
-  .colorNegro{
-    color: black;
+  table{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+  }
+  table th, table td{
+    border: 2px white;
+    width: 12%;
+    height: 50px;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: grey;
+  }
+  tbody tr:nth-child(even) {
+    background-color: black;
   }

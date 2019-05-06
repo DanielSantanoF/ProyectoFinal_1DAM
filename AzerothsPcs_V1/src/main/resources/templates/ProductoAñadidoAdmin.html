@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AZEROTHS’PCS-Inicio</title>
+  <title>AZEROTHS’PCS-ProductoAñadidoAdmin</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="css/CSSProductoAñadidoAdmin.css" rel="stylesheet">
@@ -29,12 +29,24 @@
             <td th:text="${producto.precio}"></td>
         </tr>
         <tr>
-            <td>Imagen:</td>
-            <td th:text="${producto.imagen}"></td>
+            <td>En oferta:</td>
+            <td th:text="${producto.enOferta}"></td>
+        </tr>
+        <tr>
+            <td>Descuento:</td>
+            <td th:text="${producto.descuento}"></td>
         </tr>
         <tr>
             <td>Cantidad:</td>
             <td th:text="${producto.cantidad}"></td>
+        </tr>
+        <tr>
+            <td>Disponible:</td>
+            <td th:text="${producto.disponible}"></td>
+        </tr>
+        <tr>
+            <td>Imagen:</td>
+            <td th:text="${producto.imagen}"></td>
         </tr>
         <tr>
             <td>Marca:</td>

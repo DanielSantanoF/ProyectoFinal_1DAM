@@ -20,7 +20,7 @@ public class Usuario {
 	@NonNull private String nombre;
 	private String apellidos;
 	private String dni;
-	private String contraseña;
+	private String contrasenya;
 	private String email;
 	private boolean admin;
 
@@ -32,7 +32,7 @@ public class Usuario {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.contraseña = contraseña;
+		this.contrasenya = contraseña;
 		this.email = email;
 		this.admin = admin;
 	}

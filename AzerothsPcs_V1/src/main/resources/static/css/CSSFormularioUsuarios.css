@@ -1,0 +1,41 @@
+#formulario {
+	width: 500px;
+	padding-top: 20px;
+}
+
+#formulario input {
+	margin-top: 10px;
+	display: block;
+}
+
+input[type="text"], input[type="email"]  {
+	width: 100%;
+}
+.navbarfijado{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  body {
+    padding-top: 3.5rem;
+    background-image: url(../img/fondo2.jpg);
+    color: white;
+  }
+  .piePagina{
+    border: none;
+    border-radius: 0%;
+    margin: 0%;
+    background: none !important;
+  } 
+  .opcionesMenu{
+    text-decoration: none;
+    color: white;
+    margin-top: 2%;
+    margin-left: 2%;
+  }
+  .formularioMedio{
+      width: 50%;
+      margin-left: 25%;
+  }

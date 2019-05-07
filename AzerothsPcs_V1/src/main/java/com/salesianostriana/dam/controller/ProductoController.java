@@ -12,7 +12,7 @@ import com.salesianostriana.dam.service.ProductoService;
 @Controller
 public class ProductoController {
 
-	private ProductoService productoService;
+	private ProductoService productoServicio;
 	
 		@GetMapping ("/producto")
 		public String showForm(Model model) {
@@ -24,11 +24,16 @@ public class ProductoController {
 		
 		@PostMapping ("/addProducto")
 		public String submit(@ModelAttribute("productoForm") Producto producto,  Model model) {
-			productoService.add(producto);
+			//productoService.save(producto);
 			
 			model.addAttribute("producto", producto);
 			
 			return "ProductoAñadidoAdmin";
 			
+		}
+		@PostMapping("/addProducto/submit")
+		public String procesarFormulario(@ModelAttribute("productForm") Producto p) {
+			productoServicio.save(p);
+			return "redirect:/producto";
 		}
 }

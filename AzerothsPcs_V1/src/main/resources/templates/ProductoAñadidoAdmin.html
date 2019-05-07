@@ -6,7 +6,8 @@
   <title>AZEROTHS’PCS-ProductoAñadidoAdmin</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="css/CSSProductoAñadidoAdmin.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/CSSProductoAñadidoAdmin.css" th:href="@{/css/CSSProductoAñadidoAdmin.css}" >
+  <!-- "@{/css/CSSProductoAñadidoAdmin.css}"-->
 </head>
 
 <body>
@@ -53,6 +54,7 @@
             <td th:text="${producto.marca}"></td>
         </tr>
     </table>
+    <button type="submit" class="btn btn-primary mb-2">Guardar Producto en la BASE DE DATOS</button>
 
     <div th:replace="Footer.html :: footer"></div>
     

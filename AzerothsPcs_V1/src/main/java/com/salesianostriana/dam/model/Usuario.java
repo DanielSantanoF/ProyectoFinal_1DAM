@@ -24,8 +24,6 @@ public class Usuario {
 	private String email;
 	private boolean admin;
 
-	//preguntar uso nonnull
-
 	public Usuario(String nombre, String apellidos, String dni, String contraseña, String email,
 			boolean admin) {
 		

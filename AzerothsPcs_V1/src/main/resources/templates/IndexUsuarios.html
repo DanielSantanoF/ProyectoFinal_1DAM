@@ -14,10 +14,10 @@
     <div th:replace="Navbar.html :: navbar"></div>
 
     <div id="menu" class="opcionesMenu">
-            <a th:href="@{/listUsuarios}">Inicio</a> | <a th:href="@{/nuevo}">Nuevo usuario</a>
+        <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/listUsuarios}">Ver Usuarios</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/nuevo}">Nuevo usuario</a></button>
     </div>
-        <br /><br />
-        <table border=2>
+        <br />
+        <table class="table table-dark table-striped  ml-0">
             <thead>
                 <tr>
                     <th>Id</th>

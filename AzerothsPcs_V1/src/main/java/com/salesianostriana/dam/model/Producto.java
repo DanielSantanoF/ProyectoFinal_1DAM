@@ -4,12 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor
+@Data 
+@NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Producto {
 
 	@Id
@@ -40,28 +44,4 @@ public class Producto {
 		this.marca = marca;
 	}
 
-	public Producto(String nombre, String descripcion, double precio, int cantidad, String imagen, String marca) {
-		super();
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.cantidad = cantidad;
-		this.imagen = imagen;
-		this.marca = marca;
-	}
-
-	//CONSTRUCTO PARA PRODAR A AÑADIR PRODUCTOS
-	
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-	
 }

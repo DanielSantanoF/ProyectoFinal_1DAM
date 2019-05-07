@@ -32,8 +32,6 @@ public class Pedido {
 		this.idUsuario = idUsuario;
 	}
 	
-	
-	
 	/*public double calculoPrecioFinal() {
 		for(LineaDePedido l : lineasPedido) {
 			precioFinal = precioFinal + l.getPvp();
@@ -42,8 +40,4 @@ public class Pedido {
 		return precioFinal;
 	}*/
 
-	
-	
-	
-	
 }

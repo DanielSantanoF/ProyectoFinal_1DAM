@@ -1,16 +1,3 @@
-#formulario {
-	width: 500px;
-	padding-top: 20px;
-}
-
-#formulario input {
-	margin-top: 10px;
-	display: block;
-}
-
-input[type="text"], input[type="email"]  {
-	width: 100%;
-}
 .navbarfijado{
     position: fixed;
     top: 0;
@@ -32,10 +19,15 @@ input[type="text"], input[type="email"]  {
   .opcionesMenu{
     text-decoration: none;
     color: white;
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 1%;
+    margin-left: 1%;
   }
-  .formularioMedio{
-      width: 50%;
-      margin-left: 25%;
+  .formulario{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .centrado{
+    text-align: center;
   }

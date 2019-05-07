@@ -22,7 +22,7 @@ public class UsuarioController {
 	
 	
 	 //Método que gestiona la petición "índice" o de listado
-	@GetMapping({"/", "/listUsuarios"})
+	@GetMapping({"/listUsuarios"})
 	public String listarTodos(Model model) {
 		model.addAttribute("lista", usuarioServicio.findAll());
 		return "IndexUsuarios";
@@ -40,8 +40,8 @@ public class UsuarioController {
 	 //Método que procesa la respuesta del formulario
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("usuario") Usuario u) {
-		usuarioServicio.add(u);
-		return "redirect:/";
+		usuarioServicio.save(u);
+		return "redirect:/listUsuarios";
 	}
 	
 	 //Método que atiende la petición de mostrar el formulario de edición de un usuario
@@ -56,7 +56,7 @@ public class UsuarioController {
 		} else {
 			// No existe ningún ususario con el Id proporcionado.
 			// Redirigimos hacia el listado.
-			return "redirect:/";
+			return "redirect:/listUsuarios";
 		}
 			
 	}
@@ -66,13 +66,13 @@ public class UsuarioController {
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("usuario") Usuario u) {
 		usuarioServicio.edit(u);
-		return "redirect:/";
+		return "redirect:/listUsuarios";
 	}
 	
 	//Método que borrar un usuario por su Id
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") long id) {
-		usuarioServicio.delete(id);
-		return "redirect:/";
+		usuarioServicio.deleteById(id);
+		return "redirect:/listUsuarios";
 	}
 }

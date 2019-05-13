@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.model;
 
+import javax.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,10 +13,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Entity
 public class Componentes extends Producto{
 
 	private String memoria;
 	private String velocidad;
 	private String socket;
-	private String tipoMmemoria;
+	private String tipoMemoria;
+	
+	
 }

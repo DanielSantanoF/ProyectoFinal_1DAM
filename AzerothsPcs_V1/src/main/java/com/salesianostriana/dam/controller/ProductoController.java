@@ -52,15 +52,18 @@ public class ProductoController {
 			
 			Producto aEditar = productoServicio.findById(id);
 			
-			if (aEditar instanceof Producto) {
-				model.addAttribute("producto", aEditar);
-				return "FormularioProductos";
+			if (aEditar instanceof Ordenador) {
+				model.addAttribute("ordenador", aEditar);
+				return "FormularioOrdenadores";
 			} if(aEditar instanceof Componentes){
 				model.addAttribute("componentes", aEditar);
 				return "FormularioComponentes";
+			} if(aEditar instanceof Accesorios){
+				model.addAttribute("accesorios", aEditar);
+				return "FormularioAccesorios";
 			}else {
-				
-				return "redirect:/listProductos";
+				model.addAttribute("producto", aEditar);
+				return "FormularioProductos";
 			}
 				
 		}

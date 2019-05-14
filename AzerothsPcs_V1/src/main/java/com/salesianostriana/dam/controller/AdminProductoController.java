@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.model.Accesorios;
 import com.salesianostriana.dam.model.Componentes;
@@ -14,18 +15,19 @@ import com.salesianostriana.dam.model.Producto;
 import com.salesianostriana.dam.service.ProductoService;
 
 @Controller
-public class ProductoController {
+@RequestMapping("/admin")
+public class AdminProductoController {
 
 	private ProductoService productoServicio;
 	
 	
-		public ProductoController(ProductoService productoServicio) {
+		public AdminProductoController(ProductoService productoServicio) {
 		super();
 		this.productoServicio = productoServicio;
 	}
 
 		//Método que gestiona la petición "índice" o de listado
-		@GetMapping({"/listProductos"})
+		@GetMapping({"/listaProductos"})
 		public String listarTodos(Model model) {
 			model.addAttribute("lista", productoServicio.findAll());
 			return "IndexProductos";
@@ -43,7 +45,7 @@ public class ProductoController {
 		@PostMapping("/nuevoProducto/submit")
 		public String procesarFormulario(@ModelAttribute("producto") Producto p) {
 			productoServicio.save(p);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 		
 		 //Método que atiende la petición de mostrar el formulario de edición de un usuario
@@ -73,14 +75,14 @@ public class ProductoController {
 		@PostMapping("/editarProducto/submit")
 		public String procesarFormularioEdicion(@ModelAttribute("producto") Producto p) {
 			productoServicio.edit(p);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 		
 		//Método que borrar un usuario por su Id
 		@GetMapping("/borrarProducto/{id}")
 		public String borrar(@PathVariable("id") long id) {
 			productoServicio.deleteById(id);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 		
 		//COMPONENTES__________________________________________________________________
@@ -94,7 +96,7 @@ public class ProductoController {
 		@PostMapping("/nuevoComponente/submit")
 		public String procesarFormularioComponentes(@ModelAttribute("componentes") Componentes c) {
 			productoServicio.save(c);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 		
 		//ACCESORIOS_____________________________________________________________________
@@ -108,7 +110,7 @@ public class ProductoController {
 		@PostMapping("/nuevoAccesorio/submit")
 		public String procesarFormularioAccesorio(@ModelAttribute("accesorios") Accesorios a) {
 			productoServicio.save(a);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 		
 		//ORDENADORES________________________________________________________________________
@@ -122,6 +124,6 @@ public class ProductoController {
 		@PostMapping("/nuevoOrdenador/submit")
 		public String procesarFormularioOrdenador(@ModelAttribute("ordenador") Ordenador o) {
 			productoServicio.save(o);
-			return "redirect:/listProductos";
+			return "redirect:/admin/listaProductos";
 		}
 }

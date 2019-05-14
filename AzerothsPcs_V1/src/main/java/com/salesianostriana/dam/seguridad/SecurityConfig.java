@@ -1,28 +1,34 @@
 package com.salesianostriana.dam.seguridad;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	private UserDetailsService userDetailsService;
+	
+
+	public SecurityConfig(UserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
+
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.inMemoryAuthentication()
-			.passwordEncoder(NoOpPasswordEncoder.getInstance())
-			.withUser("admin")
-			.password("admin")
-			.roles("ADMIN")
-			.and()
-			.withUser("user")
-			.password("user")
-			.roles("USER");
+		
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 		
 	}
 
@@ -30,12 +36,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/css/**","/js/**","/webjars/**","/img/**").permitAll()
+				.antMatchers("/css/**","/js/**","/webjars/**", "/h2-console/**", "/img/**").permitAll()
+				.antMatchers("/admin/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.loginPage("/login")
-				.permitAll();
-
+				.permitAll()
+				.and()
+			.logout()
+				.logoutUrl("/logout")
+				.permitAll()
+				.and()
+			.exceptionHandling()
+				.accessDeniedPage("/AccesoDenegado");
+		
+		// Añadimos esto para poder seguir accediendo a la consola de H2
+		// con Spring Security habilitado.
+		http.csrf().disable();
+        http.headers().frameOptions().disable();
+		
 	}
 }

@@ -1,28 +1,33 @@
 package com.salesianostriana.dam.controller;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.salesianostriana.dam.model.Usuario;
 import com.salesianostriana.dam.service.UsuarioServicio;
 
 
 @Controller
-public class UsuarioController {
+@RequestMapping("/admin")
+public class AdminUsuarioController {
 
 	private UsuarioServicio usuarioServicio;
+	private BCryptPasswordEncoder passwordEncoder;
 	
-	public UsuarioController(UsuarioServicio servicio) {
+	public AdminUsuarioController(UsuarioServicio servicio) {
 		this.usuarioServicio = servicio;
 	}
 	
 	
 	 //Método que gestiona la petición "índice" o de listado
-	@GetMapping({"/listUsuarios"})
+	@GetMapping({"/listaUsuarios"})
 	public String listarTodos(Model model) {
 		model.addAttribute("lista", usuarioServicio.findAll());
 		return "IndexUsuarios";
@@ -30,7 +35,7 @@ public class UsuarioController {
 	
 	
 	 //Método que atiende la petición de mostrar formulario
-	@GetMapping("/nuevo")
+	@GetMapping("/nuevoUsuario")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "FormularioUsuarios";
@@ -38,14 +43,15 @@ public class UsuarioController {
 	
 	
 	 //Método que procesa la respuesta del formulario
-	@PostMapping("/nuevo/submit")
+	@PostMapping("/nuevoUsuario/submit")
 	public String procesarFormulario(@ModelAttribute("usuario") Usuario u) {
 		usuarioServicio.save(u);
-		return "redirect:/listUsuarios";
+		//u.setPassword(passwordEncoder.encode(u.getPassword()));
+		return "redirect:/admin/listaUsuarios";
 	}
 	
 	 //Método que atiende la petición de mostrar el formulario de edición de un usuario
-	@GetMapping("/editar/{id}")
+	@GetMapping("/editarUsuario/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
 		Usuario aEditar = usuarioServicio.findById(id);
@@ -56,23 +62,23 @@ public class UsuarioController {
 		} else {
 			// No existe ningún ususario con el Id proporcionado.
 			// Redirigimos hacia el listado.
-			return "redirect:/listUsuarios";
+			return "redirect:/admin/listaUsuarios";
 		}
 			
 	}
 	
 	
 	 //Método que procesa la respuesta del formulario al editar
-	@PostMapping("/editar/submit")
+	@PostMapping("/editarUsuario/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("usuario") Usuario u) {
 		usuarioServicio.edit(u);
-		return "redirect:/listUsuarios";
+		return "redirect:/admin/listaUsuarios";
 	}
 	
 	//Método que borrar un usuario por su Id
-	@GetMapping("/borrar/{id}")
+	@GetMapping("/borrarUsuario/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		usuarioServicio.deleteById(id);
-		return "redirect:/listUsuarios";
+		return "redirect:/admin/listaUsuarios";
 	}
 }

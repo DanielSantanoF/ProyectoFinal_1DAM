@@ -14,11 +14,11 @@
     <div th:replace="Navbar.html :: navbar"></div>
 
     <div id="menu" class="opcionesMenu">
-      <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/listUsuarios}">Ver Usuarios</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/nuevo}">Nuevo usuario</a></button>
+      <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/listaUsuarios}">Ver Usuarios</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoUsuario}">Nuevo usuario</a></button>
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${usuario}" method="post">
+            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/admin/editarUsuario/submit} : @{/admin/nuevoUsuario/submit}" th:object="${usuario}" method="post">
               <div class="form-group">
                   <label for="nombre">USUARIO:</label>
                   <br>
@@ -32,7 +32,7 @@
                 <input class="form-control form-control-lg" type="text" name="dni" th:field="*{dni}" placeholder="DNI" />
               </div>
                 <div class="form-group">
-                <input class="form-control form-control-lg" type="text" name="contraseña" th:field="*{contrasenya}" placeholder="Contraseña" />
+                <input class="form-control form-control-lg" type="text" name="contraseña" th:field="*{password}" placeholder="Contraseña" />
               </div>
                 <div class="form-group">
                 <input class="form-control form-control-lg" type="email" name="email" th:field="*{email}" placeholder="Email" />

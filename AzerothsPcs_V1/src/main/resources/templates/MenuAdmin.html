@@ -3,52 +3,39 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AZEROTHS’PCS</title>
+  <title>AZEROTHS’PCS-MenuAdmin</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="css/CSSPortada.css" rel="stylesheet" th:href="@{/css/CSSPortada.css}">
+  <link href="css/CSSMenuAdmin.css" rel="stylesheet" th:href="@{/css/CSSMenuAdmin.css}">
 </head>
 
 <body>
 
+    <div th:replace="Navbar.html :: navbar"></div>
 
-  <div class="site-wrapper">
+    <h1 class="text-align-center">Bienvenido Administrador</h1>
 
-    <div class="site-wrapper-inner">
-
-      <div class="container">
-
-        <div class="masthead clearfix">
-          <div class="container inner">
-            <h3 class="masthead-brand">AZEROTHS’PCS</h3>
-            <nav>
-              <ul class="nav masthead-nav">
-                <li class="active"><a th:href="@{/portada}">AZEROTHS’PCS</a></li>
-                <li><a th:href="@{/inicio}">Inicio</a></li>
-                <li><a th:href="@{/informacion}">Información</a></li>
-              </ul>
-            </nav>
-          </div>
+    <div class="container marketing">
+    <div class="row">
+        <div class="col-lg-6">
+          <img class="rounded-circle" src="../img/iconoUsuarios.png" alt="Generic placeholder image" width="140"
+            height="140">
+          <h2>Usuarios</h2>
+          <p>Administra los Usuarios</p>
+          <p><a class="btn btn-secondary" th:href="@{/admin/listaUsuarios}" role="button">Ver Usuarios »</a></p>
         </div>
-
-        <div class="inner cover">
-          <h1 class="cover-heading">AZEROTHS’PCS</h1>
-          <p class="lead"> </p>
-          <p class="lead">
-            <a th:href="@{/inicio}" class="btn btn-lg btn-default">Inicio</a>
-          </p>
+        <div class="col-lg-6">
+          <img class="rounded-circle" src="../img/iconoProductos.png" alt="Generic placeholder image" width="140"
+            height="140">
+          <h2>Productos</h2>
+          <p>Administra los Productos</p>
+          <p><a class="btn btn-secondary" th:href="@{/admin/listaProductos}" role="button">Ver Productos »</a></p>
         </div>
-
-      </div>
-
+    </div>
     </div>
 
-  </div>
-
-  
     <div th:replace="Footer.html :: footer"></div>
     
-  
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

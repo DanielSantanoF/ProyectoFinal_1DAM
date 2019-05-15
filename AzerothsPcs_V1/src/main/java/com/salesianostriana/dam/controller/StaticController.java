@@ -16,4 +16,9 @@ public class StaticController {
 		return "Informacion";
 	}
 	
+	@GetMapping("/inicio")
+	public String getInicio() {
+		return "Inicio";
+	}
+	
 }

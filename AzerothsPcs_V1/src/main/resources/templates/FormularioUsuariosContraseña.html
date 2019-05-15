@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AZEROTHS’PCS-FormularioUsuarios</title>
+  <title>AZEROTHS’PCS-FormularioUsuariosContraseña</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="../static/css/CSSFormularioUsuarios.css" rel="stylesheet" th:href="@{/css/CSSFormularioUsuarios.css}">
@@ -18,30 +18,19 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/admin/editarUsuario/submit} : @{/admin/nuevoUsuario/submit}" th:object="${usuario}" method="post">
+            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/admin/editarUsuarioPassword/submit}" th:object="${usuario}" method="post">
               <div class="form-group">
-                  <label for="nombre">USUARIO:</label>
+                  <label for="nombre">INDIQUE LA NUEVA CONTRASEÑA DEL USUARIO:</label>
                   <br>
               <td><input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" /></td>
-              <td><input th:if="${usuario.password != 0}" type="hidden" name="contraseña" th:field="*{password}" /></td>
-              <label for="nombre">Nombre: </label>
-                <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
+              <td><input th:if="${usuario.nombre != 0}" type="hidden" name="nombre" th:field="*{nombre}" /></td>
+              <td><input th:if="${usuario.apellidos != 0}" type="hidden" name="apellidos" th:field="*{apellidos}" /></td>
+              <td><input th:if="${usuario.dni != 0}" type="hidden" name="dni" th:field="*{dni}" /></td>
+              <td><input th:if="${usuario.email != 0}" type="hidden" name="email" th:field="*{email}" /></td>
+              <td><input th:if="${usuario.admin != 0}" type="hidden" name="admin" th:field="*{admin}" /></td>
               </div>
                 <div class="form-group">
-                    <label for="Apellidos">Apellidos: </label>
-                <input class="form-control form-control-lg" type="text" name="apellidos" th:field="*{apellidos}" placeholder="Apellidos" />
-              </div>
-                <div class="form-group">
-                    <label for="dni">DNI: </label>
-                <input class="form-control form-control-lg" type="text" name="dni" th:field="*{dni}" placeholder="DNI" />
-              </div>
-                <div class="form-group">
-                    <label for="email">Email: </label>
-                <input class="form-control form-control-lg" type="email" name="email" th:field="*{email}" placeholder="Email" />
-              </div>
-                <div class="form-group">
-                    <label for="admin">MARCAR SI EL USUARIO ES ADMIN </label>
-                <input class="form-control form-control-lg" type="checkbox" name="admin" th:field="*{admin}" onchange="setDisponible(true)"/>
+                <input class="form-control form-control-lg" type="password" name="contraseña" th:field="*{password}" placeholder="Contraseña" />
               </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary mb-2">Enviar</button>

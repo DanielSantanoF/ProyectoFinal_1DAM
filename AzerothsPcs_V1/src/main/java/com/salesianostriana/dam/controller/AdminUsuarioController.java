@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.controller;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import com.salesianostriana.dam.service.UsuarioServicio;
 public class AdminUsuarioController {
 
 	private UsuarioServicio usuarioServicio;
-	private BCryptPasswordEncoder passwordEncoder;
+	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	public AdminUsuarioController(UsuarioServicio servicio) {
 		this.usuarioServicio = servicio;
@@ -45,8 +46,8 @@ public class AdminUsuarioController {
 	 //Método que procesa la respuesta del formulario
 	@PostMapping("/nuevoUsuario/submit")
 	public String procesarFormulario(@ModelAttribute("usuario") Usuario u) {
+		u.setPassword(passwordEncoder.encode(u.getPassword()));
 		usuarioServicio.save(u);
-		//u.setPassword(passwordEncoder.encode(u.getPassword()));
 		return "redirect:/admin/listaUsuarios";
 	}
 	
@@ -79,6 +80,31 @@ public class AdminUsuarioController {
 	@GetMapping("/borrarUsuario/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		usuarioServicio.deleteById(id);
+		return "redirect:/admin/listaUsuarios";
+	}
+	
+	//Método que atiende la petición de mostrar el formulario de edición de un usuario
+		@GetMapping("/editarUsuarioPassword/{id}")
+		public String mostrarFormularioEdicionPassword(@PathVariable("id") long id, Model model) {
+			
+			Usuario aEditar = usuarioServicio.findById(id);
+			
+			if (aEditar != null) {
+				model.addAttribute("usuario", aEditar);
+				return "FormularioUsuariosContraseña";
+			} else {
+				// No existe ningún ususario con el Id proporcionado.
+				// Redirigimos hacia el listado.
+				return "redirect:/admin/listaUsuarios";
+			}
+				
+		}
+	
+	 //Método que procesa la respuesta del formulario al editar
+	@PostMapping("/editarUsuarioPassword/submit")
+	public String procesarFormularioEdicionPassword(@ModelAttribute("usuario") Usuario u) {
+		u.setPassword(passwordEncoder.encode(u.getPassword()));
+		usuarioServicio.edit(u);
 		return "redirect:/admin/listaUsuarios";
 	}
 }

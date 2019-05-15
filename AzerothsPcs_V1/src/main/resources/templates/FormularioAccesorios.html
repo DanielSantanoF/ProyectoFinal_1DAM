@@ -18,7 +18,7 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${accesorios.id != 0} ? @{/admin/editarProducto/submit} : @{/admin/nuevoAccesorio/submit}" th:object="${accesorios}" method="post">
+            <form class="needs-validation" th:action="${accesorios.id != 0} ? @{/admin/editarProducto/submitAccesorio} : @{/admin/nuevoAccesorio/submit}" th:object="${accesorios}" method="post">
               <div class="form-group">
                   <label for="nombre">Accesorio:</label>
                   <br>
@@ -26,6 +26,7 @@
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>
                 <div class="form-group">
+                    <label for="descripcion">Descripción: </label>
                 <input class="form-control form-control-lg" type="text" name="descripcion" th:field="*{descripcion}" placeholder="Descripcion" />
               </div>
                 <div class="form-group">
@@ -49,15 +50,19 @@
                 <input class="form-control form-control-lg" type="checkbox" name="disponible" th:field="*{disponible}" onchange="setDisponible(true)"/>
               </div>
                 <div class="form-group">
+                    <label for="imagen">Imagen: </label>
                 <input class="form-control form-control-lg" type="text" name="imagen" th:field="*{imagen}" placeholder="Imagen" />
               </div>
               <div class="form-group">
+                  <label for="marca">Marca: </label>
                 <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
               </div>
               <div class="form-group">
+                  <label for="tipo">Tipo: </label>
                     <input class="form-control form-control-lg" type="text" name="tipo" th:field="*{tipo}" placeholder="Tipo" />
                   </div>
                   <div class="form-group">
+                      <label for="capacidad">Capacidad: </label>
                         <input class="form-control form-control-lg" type="text" name="capacidad" th:field="*{capacidad}" placeholder="Capacidad" />
                       </div>
                 <div class="form-group">

@@ -24,6 +24,7 @@ public class AzerothsPcsV1Application {
 			u.setAdmin(false);
 			u.setNombre("Usuario");
 			u.setApellidos("AUsuario");
+			u.setDni("12345678B");
 			u.setEmail("usuario@email.com");
 			u.setPassword(passwordEncoder.encode("1234"));
 			
@@ -34,6 +35,7 @@ public class AzerothsPcsV1Application {
 			a.setAdmin(true);
 			a.setNombre("Admin");
 			a.setApellidos("AAdmin");
+			a.setDni("12345678A");
 			a.setEmail("admin@email.com");
 			a.setPassword(passwordEncoder.encode("1234"));
 			

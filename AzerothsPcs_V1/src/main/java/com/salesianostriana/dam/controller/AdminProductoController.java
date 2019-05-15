@@ -99,6 +99,13 @@ public class AdminProductoController {
 			return "redirect:/admin/listaProductos";
 		}
 		
+		//Método que procesa la respuesta del formulario al editar
+		@PostMapping("/editarProducto/submitComponente")
+		public String procesarFormularioEdicionComponentes(@ModelAttribute("componentes") Componentes c) {
+			productoServicio.edit(c);
+			return "redirect:/admin/listaProductos";
+		}
+				
 		//ACCESORIOS_____________________________________________________________________
 		
 		@GetMapping("/nuevoAccesorio")
@@ -113,6 +120,13 @@ public class AdminProductoController {
 			return "redirect:/admin/listaProductos";
 		}
 		
+		//Método que procesa la respuesta del formulario al editar
+		@PostMapping("/editarProducto/submitAccesorio")
+		public String procesarFormularioEdicionAccesorio(@ModelAttribute("accesorios") Accesorios a) {
+			productoServicio.edit(a);
+			return "redirect:/admin/listaProductos";
+		}
+		
 		//ORDENADORES________________________________________________________________________
 		
 		@GetMapping("/nuevoOrdenador")
@@ -124,6 +138,13 @@ public class AdminProductoController {
 		@PostMapping("/nuevoOrdenador/submit")
 		public String procesarFormularioOrdenador(@ModelAttribute("ordenador") Ordenador o) {
 			productoServicio.save(o);
+			return "redirect:/admin/listaProductos";
+		}
+		
+		//Método que procesa la respuesta del formulario al editar
+		@PostMapping("/editarProducto/submitOrdenador")
+		public String procesarFormularioEdicionOrdenadores(@ModelAttribute("ordenador") Ordenador o) {
+			productoServicio.edit(o);
 			return "redirect:/admin/listaProductos";
 		}
 }

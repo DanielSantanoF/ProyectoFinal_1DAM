@@ -18,7 +18,7 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${componentes.id != 0} ? @{/admin/editarProducto/submit} : @{/admin/nuevoComponente/submit}" th:object="${componentes}" method="post">
+            <form class="needs-validation" th:action="${componentes.id != 0} ? @{/admin/editarProducto/submitComponente} : @{/admin/nuevoComponente/submit}" th:object="${componentes}" method="post">
               <div class="form-group">
                   <label for="nombre">Componente:</label>
                   <br>
@@ -26,6 +26,7 @@
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>
                 <div class="form-group">
+                    <label for="descripcion">Descripción: </label>
                 <input class="form-control form-control-lg" type="text" name="descripcion" th:field="*{descripcion}" placeholder="Descripcion" />
               </div>
                 <div class="form-group">
@@ -49,21 +50,27 @@
                 <input class="form-control form-control-lg" type="checkbox" name="disponible" th:field="*{disponible}" onchange="setDisponible(true)"/>
               </div>
                 <div class="form-group">
+                    <label for="imagen">Imagen: </label>
                 <input class="form-control form-control-lg" type="text" name="imagen" th:field="*{imagen}" placeholder="Imagen" />
               </div>
               <div class="form-group">
+                  <label for="marca">Marca: </label>
                 <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
               </div>
               <div class="form-group">
+                  <label for="memoria">Memoria: </label>
                     <input class="form-control form-control-lg" type="text" name="memoria" th:field="*{memoria}" placeholder="Memoria" />
                   </div>
                   <div class="form-group">
+                      <label for="velocidad">Velocidad: </label>
                         <input class="form-control form-control-lg" type="text" name="velocidad" th:field="*{velocidad}" placeholder="Velocidad" />
                       </div>
                       <div class="form-group">
+                          <label for="socket">Socket: </label>
                             <input class="form-control form-control-lg" type="text" name="socket" th:field="*{socket}" placeholder="Socket" />
                           </div>
                           <div class="form-group">
+                              <label for="tipoMemoria">Tipo Memoria: </label>
                                 <input class="form-control form-control-lg" type="text" name="tipoMemoria" th:field="*{tipoMemoria}" placeholder="Tipo de Memoria" />
                               </div>
                 <div class="form-group">

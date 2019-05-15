@@ -18,7 +18,7 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${ordenador.id != 0} ? @{/admin/editarProducto/submit} : @{/admin/nuevoOrdenador/submit}" th:object="${ordenador}" method="post">
+            <form class="needs-validation" th:action="${ordenador.id != 0} ? @{/admin/editarProducto/submitOrdenador} : @{/admin/nuevoOrdenador/submit}" th:object="${ordenador}" method="post">
               <div class="form-group">
                   <label for="nombre">Accesorio:</label>
                   <br>
@@ -26,6 +26,7 @@
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>
                 <div class="form-group">
+                    <label for="descripcion">Descripción: </label>
                 <input class="form-control form-control-lg" type="text" name="descripcion" th:field="*{descripcion}" placeholder="Descripcion" />
               </div>
                 <div class="form-group">
@@ -49,27 +50,35 @@
                 <input class="form-control form-control-lg" type="checkbox" name="disponible" th:field="*{disponible}" onchange="setDisponible(true)"/>
               </div>
                 <div class="form-group">
+                    <label for="imagen">Imagen: </label>
                 <input class="form-control form-control-lg" type="text" name="imagen" th:field="*{imagen}" placeholder="Imagen" />
               </div>
               <div class="form-group">
+                  <label for="marca">Marca: </label>
                 <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
               </div>
               <div class="form-group">
+                  <label for="procesador">Procesador: </label>
                     <input class="form-control form-control-lg" type="text" name="procesador" th:field="*{procesador}" placeholder="Procesador" />
                   </div>
                   <div class="form-group">
+                      <label for="ram">RAM: </label>
                         <input class="form-control form-control-lg" type="text" name="ram" th:field="*{ram}" placeholder="RAM" />
                       </div>
                       <div class="form-group">
+                          <label for="discoDuro">Disco Duro: </label>
                             <input class="form-control form-control-lg" type="text" name="discoDuro" th:field="*{discoDuro}" placeholder="Disco Duro" />
                           </div>
                           <div class="form-group">
+                              <label for="sistemaOperativo">Sistema Operativo: </label>
                                 <input class="form-control form-control-lg" type="text" name="sistemaOperativo" th:field="*{sistemaOperativo}" placeholder="Sistema Operativo" />
                               </div>
                               <div class="form-group">
+                                  <label for="tipo">Tipo: </label>
                                     <input class="form-control form-control-lg" type="text" name="tipo" th:field="*{tipo}" placeholder="tipo" />
                                   </div>
                                   <div class="form-group">
+                                      <label for="dimensiones">Dimensiones: </label>
                                         <input class="form-control form-control-lg" type="text" name="dimensiones" th:field="*{dimensiones}" placeholder="Dimensiones" />
                                       </div>
                 <div class="form-group">

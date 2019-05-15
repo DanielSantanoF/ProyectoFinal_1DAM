@@ -41,7 +41,8 @@
                     <td th:text="${usuario.admin}">Admin</td>
                     <td>
                         <a href="#" th:href="@{/admin/editarUsuario/{id}(id=${usuario.id})}">Editar</a> | 
-                        <a href="#" th:href="@{/admin/borrarUsuario/{id}(id=${usuario.id})}">Borrar</a>
+                        <a href="#" th:href="@{/admin/borrarUsuario/{id}(id=${usuario.id})}">Borrar</a> | 
+                        <a href="#" th:href="@{/admin/editarUsuarioPassword/{id}(id=${usuario.id})}">EditarContraseña</a>
                     </td>
                 </tr>
             </tbody>

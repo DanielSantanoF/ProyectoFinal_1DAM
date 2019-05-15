@@ -9,7 +9,7 @@ import com.salesianostriana.dam.model.Ordenador;
 @Controller
 public class PruebaController {
 
-	@GetMapping("/inicio")
+	/*@GetMapping("/inicio")
 	public String getInicio() {
 		return "Inicio";
 	}
@@ -17,7 +17,7 @@ public class PruebaController {
 	@GetMapping("/portada")
 	public String getPortada() {
 		return "Portada";
-	}
+	}*/
 	
 	/**
 	//@GetMapping("/pcSobremesa")

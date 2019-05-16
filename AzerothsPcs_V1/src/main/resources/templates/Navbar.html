@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="utf-8">
@@ -27,9 +27,9 @@
               <li class="nav-item">
                 <a class="nav-link" th:href="@{/informacion}">Información</a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false" >
                     Zona de administrador
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,10 +50,11 @@
                   Tienda
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="PcSobremesa.html">PCS Sobremesa</a>
-                  <a class="dropdown-item" href="PcPortatil.html">Portátiles</a>
+                  <a class="dropdown-item" href="PcPortatil.html">Ordenadores</a>
+                  <a class="dropdown-item" href="PcSobremesa.html">Accesorios</a>
+                  <a class="dropdown-item" href="PcPortatil.html">Componentes</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="CrearPc.html">Accesorios</a>
+                  <a class="dropdown-item" href="CrearPc.html">Productos</a>
                 </div>
               </li>
             </ul>

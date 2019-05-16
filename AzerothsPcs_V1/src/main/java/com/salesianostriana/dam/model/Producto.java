@@ -24,20 +24,20 @@ public class Producto {
 	private String descripcion;
 	private double precio;
 	private boolean enOferta;
-	private double descuento;
+	private double precioConDescuento;
 	private int cantidad;
 	private boolean disponible;
 	private String imagen;
 	private String marca;
 	
-	public Producto(String nombre, String descripcion, double precio, boolean enOferta, double descuento, int cantidad,
+	public Producto(String nombre, String descripcion, double precio, boolean enOferta, double precioConDescuento, int cantidad,
 			boolean disponible, String imagen, String marca) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.enOferta = enOferta;
-		this.descuento = descuento;
+		this.precioConDescuento = precioConDescuento;
 		this.cantidad = cantidad;
 		this.disponible = disponible;
 		this.imagen = imagen;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="utf-8">
@@ -38,8 +38,8 @@
                 <input class="form-control form-control-lg" type="checkbox" name="enOferta" th:field="*{enOferta}" onchange="setEnOferta(true)"/>
               </div>
                 <div class="form-group">
-                <label for="disonible">Descunento del producto: </label>
-                <input class="form-control form-control-lg" type="text" name="descuento" th:field="*{descuento}" placeholder="Descuento" />
+                <label for="disonible">Precio del producto con el descuento: </label>
+                <input class="form-control form-control-lg" type="text" name="precioConDescuento" th:field="*{precioConDescuento}" placeholder="PrecioConDescuento" />
               </div>
               <div class="form-group">
                     <label for="disonible">Cantidad:</label>

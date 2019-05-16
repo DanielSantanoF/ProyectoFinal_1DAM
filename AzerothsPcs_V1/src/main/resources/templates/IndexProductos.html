@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
   <meta charset="utf-8">
@@ -23,6 +23,7 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Precio</th>
+                    <th>PrecioConDescuento</th>
                     <th>Cantidad</th>
                     <th>Disponible</th>
                     <th>Marca</th>
@@ -33,6 +34,7 @@
                     <td th:text="${producto.id}">1</td>
                     <td th:text="${producto.nombre}">Nombre</td>
                     <td th:text="${producto.precio}">Precio</td>
+                    <td th:text="${producto.precioConDescuento}">PrecioConDescuento</td>
                     <td th:text="${producto.cantidad}">Cantidad</td>
                     <td th:text="${producto.disponible}">Disponible</td>
                     <td th:text="${producto.marca}">Marca</td>

@@ -1,10 +1,8 @@
 package com.salesianostriana.dam.FormBean;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @Getter
 @Setter
 public class ProductoFormBean {
@@ -17,6 +15,11 @@ public class ProductoFormBean {
 	private int cantidad;
 	private boolean disponible;
 	private String marca;
+	
+	public ProductoFormBean() {
+		
+	}
+	
 	
 	
 }

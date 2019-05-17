@@ -38,7 +38,7 @@ public class ProductoService extends BaseService<Producto, Long, ProductoReposit
 		
 		for(int i = 0; i < partialResult.size(); i++) {
 			String fileName = partialResult.get(i).getImagen();
-			result.get(i).setImagen("/img/"+ fileName);
+			result.get(i).setImagen("/images/"+ fileName);
 		}
 						
 		return result;

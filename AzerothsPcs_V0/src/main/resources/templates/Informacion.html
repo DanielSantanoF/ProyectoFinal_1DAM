@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>AZEROTHS’PCS-Informacion</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/CSSInformacion.css" rel="stylesheet" th:href="@{/css/CSSInformacion.css}">
+</head>
+
+<body>
+
+  
+    <div th:replace="Navbar.html :: navbar"></div>
+    
+
+  <main role="main">
+
+    <div class="jumbotron fondoQui">
+      <div class="container">
+        <h1 class="display-3">¿QUIENES SOMOS?</h1>
+        <p>Somos una empresa que se centra en la venta de productos informaticos, tenemos años de experiencia y en
+          conjunto con nuestros profesionales y marcas afiliadas damos el mejor servicio posible.</p>
+        <p><a class="btn btn-primary btn-lg" href="Portada.html" th:href="@{/portada}" role="button">AZEROTHS’PCS »</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <h2>¿Donde nos puedes encontrar?</h2>
+          <p>Nuestra sede se encuentra en Sevilla España en Triana </p>
+          <p><a class="btn btn-secondary"
+              href="https://www.google.com/maps/place/Sevilla/@37.3753501,-6.0250983,12z/data=!3m1!4b1!4m5!3m4!1s0xd126c1114be6291:0x34f018621cfe5648!8m2!3d37.3890924!4d-5.9844589"
+              role="button">Google Maps »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Redes sociales</h2>
+          <p>Actualmente solo contamos con twitter. </p>
+          <p><a class="btn btn-secondary" href="https://twitter.com/?lang=es" role="button">Ver Twitter »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Contacto</h2>
+          <p>Encuentra la manera de contactar con nosotros, preferiblemente via Email.</p>
+          <p><a class="btn btn-secondary" href="https://www.gmail.com/mail/help/intl/es/about.html?iframe"
+              role="button">Email de contacto »</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+    </div>
+
+  </main>
+
+  
+    <div th:replace="Footer.html :: footer"></div>
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

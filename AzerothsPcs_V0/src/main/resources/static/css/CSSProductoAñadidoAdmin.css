@@ -1,0 +1,42 @@
+.navbarfijado{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  body {
+    padding-top: 3.5rem;
+    background-image: url(../img/fondo2.jpg);
+    color: white;
+  }
+  .piePagina{
+    border: none;
+    border-radius: 0%;
+    margin: 0%;
+    background: none !important;
+  } 
+  .formulario{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  table{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+  }
+  table th, table td{
+    border: 2px white;
+    width: 12%;
+    height: 50px;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: grey;
+  }
+  tbody tr:nth-child(even) {
+    background-color: black;
+  }

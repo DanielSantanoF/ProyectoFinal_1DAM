@@ -3,18 +3,29 @@ package com.salesianostriana.dam;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.salesianostriana.dam.model.DatosDeCompra;
 import com.salesianostriana.dam.model.Usuario;
 import com.salesianostriana.dam.service.UsuarioServicio;
+import com.salesianostriana.dam.storage.StorageProperties;
+import com.salesianostriana.dam.storage.StorageService;
 
 @SpringBootApplication
+@EnableConfigurationProperties(StorageProperties.class)
 public class AzerothsPcsV1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AzerothsPcsV1Application.class, args);
+	}
+	
+	@Bean
+	CommandLineRunner init(StorageService storageService) {
+		return (args) -> {            
+            storageService.init();
+		};
 	}
 
 	@Bean

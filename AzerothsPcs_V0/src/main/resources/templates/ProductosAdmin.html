@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>AZEROTHS’PCS-ProductoAdmin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/CSSProductoAdmin.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+    <div th:replace="Navbar.html :: navbar"></div>
+
+   <form class="needs-validation formulario" novalidate method="POST" th:action="addProducto" th:object="${productoForm}">
+        <div class="form-group">
+        <label for="nombre">AÑADIR PRODUCTO:
+          <br>Nombre del producto:</label>
+        <br>
+        <td><input class="form-control form-control-lg" type="text" th:field="*{nombre}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripcion del producto:</label>
+            <br>
+            <td><input class="form-control form-control-lg" type="text" th:field="*{descripcion}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio del producto:</label>
+            <br>
+            <td><input class="form-control form-control-lg" type="text" th:field="*{precio}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="enOferta">En oferta:</label>
+            <br>
+            <input type="radio" name="enOferta" id="opt1" value="1"
+	                   th:checked="*{enOferta}"/>SI
+	          <input type="radio" name="enOferta" id="opt2" value="0"
+	                   th:checked="*{enOferta} == false" onchange="setEnOferta(false)"/>No
+        </div>
+        <div class="form-group">
+              <label for="descuento">Descuento del producto:</label>
+              <br>
+              <td><input class="form-control form-control-lg" type="text" th:field="*{descuento}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad de productos de este tipo:</label>
+            <br>
+            <td><input class="form-control form-control-lg" type="text" th:field="*{cantidad}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="disponible">Disponible:</label>
+            <br>
+            <input type="radio" name="disponible" id="opt1" value="1"
+	                   th:checked="*{disponible}"/>SI
+	          <input type="radio" name="disponible" id="opt2" value="0"
+	                   th:checked="*{disponible} == false" onchange="setDisponible(false)"/>No
+        </div>
+        <div class="form-group">
+            <label for="imagen">Imagen del producto:</label>
+            <br>
+            <td><input class="form-control form-control-lg" type="text" th:field="*{imagen}"/></td>
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca del producto:</label>
+            <br>
+            <td><input class="form-control form-control-lg" type="text" th:field="*{marca}"/></td>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Añadir Producto</button>
+    </form>
+
+    <div th:replace="Footer.html :: footer"></div>
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

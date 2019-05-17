@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>AZEROTHS’PCS-PcSobremesa</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/CSSPcs.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+    <div th:replace="Navbar.html :: navbar"></div>
+    
+
+
+  <main role="main">
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2><span th:text="${sobremesa.nombre}"></span> - <span th:text="${sobremesa.precio}"></span>€</h2>
+          <p><span th:text="${sobremesa.descripcion}"></span></p>
+          <img src="img/Hp290.jpg">
+          <h3>Tipo: <span th:text="${sobremesa.tipo}"></span></h3>
+          <h3>Caracteristicas:</h3>
+          <ul>
+            <li><span th:text="${sobremesa.procesador}"></span></li>
+            <li><span th:text="${sobremesa.ram}"></span>GB</li>
+            <li><span th:text="${sobremesa.sistemaOperativo}"></span></li>
+            <li><span th:text="${sobremesa.dimensiones}"></span></li>
+            
+          </ul>
+          <p><a class="btn btn-secondary" href="Portada.html" role="button">Comprar »</a></p>
+        </div>
+        <div class="col-md-6">
+          <h2>AzerothPC Gold Intel Core i5-9600K/16GB/240GB SSD+2TB/GTX1060 - 1116€</h2>
+          <p>PC Sobremesa ideal para gaming centrado en el alto rendimiento. </p>
+          <img src="img/AzerothPC.jpg">
+          <h3>Caracteristicas:</h3>
+          <ul>
+            <li>Torre: Nfortec Vega RGB Cristal Templado USB 3.0 Blanca</li>
+            <li>Fuente de alimentación: Thermaltake 700W / NOX 750W - Según disponibilidad</li>
+            <li>Procesador: Intel Core i5-9600K 3.7Ghz</li>
+            <li>Refrigeración líquida: Nfortec Hydrus 120 / Enermax Liqmax II 120S</li>
+            <li>Placa Base: Gigabyte Z390 UD</li>
+            <li>Disco duro:
+              HDD 2TB SATA3
+              SSD 240GB SATA3</li>
+            <li>Memoria: G.Skill Trident Z RGB DDR4 3200 PC4-25600 16GB 2x8GB CL16</li>
+            <li>Gráfica: GTX 1060 6GB GDDR5</li>
+            <li>Salida DVI: Sí x 2 (DVI-D)</li>
+            <li>Salida HDMI: Sí x 1 (HDMI 2.0)</li>
+            <li>DisplayPort : Sí x 1</li>
+            <li>Conexiones delanteras:
+              2 x USB 3.0
+              HD Audio & Mic</li>
+            <li>Cantidad de puertos tipo A USB 3.0 (3.1 Gen 1): 6</li>+
+            <li>Ethernet LAN (RJ-45) cantidad de puertos: 1</li>
+            <li>Puerto de ratón PS/2: 2</li>
+            <li>Número de puertos HDMI: 1</li>
+            <li>Salidas para auriculares: 1</li>
+            <li>Micrófono, jack de entrada: Si</li>
+            <li>Dimensiones: 405 x 455 x 210 mm (An x Al x Pr)</li>
+          </ul>
+          <p><a class="btn btn-secondary" href="Portada.html" role="button">Comprar »</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+    </div>
+
+  </main>
+
+  
+    <div th:replace="Footer.html :: footer"></div>
+    
+
+</body>
+<!--JavaScript para Bootstrap // Modal/Dialog -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

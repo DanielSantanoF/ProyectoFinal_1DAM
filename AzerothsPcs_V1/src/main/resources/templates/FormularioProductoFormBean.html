@@ -18,7 +18,7 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" enctype="multipart/form-data" th:action="${productoFormBean.id != 0} ? @{/admin/editarProductoFormBean/submit} : @{/admin/nuevoProductoFormBean/submit}" th:object="${productoFormBean}" method="post">
+            <form class="needs-validation" enctype="multipart/form-data" th:action="@{/admin/nuevoProductoFormBean/submit}" th:object="${productoFormBean}" method="post">
                 <fieldset>
                 <div class="form-group">
                   <label for="nombre">PRODUCTO:</label>
@@ -49,13 +49,15 @@
                 <label for="disonible">MARCAR SI EL PRODUCTO ESTA DISPONIBLE </label>
                 <input class="form-control form-control-lg" type="checkbox" name="disponible" th:field="*{disponible}" onchange="setDisponible(true)"/>
               </div>
-                <div class="form-group">
-                    <label for="file">Imagen: </label>
-                <input class="form-control form-control-lg" id="file" name="file" class="input-file" type="file" />
-              </div>
               <div class="form-group">
-                  <label for="marca">Marca: </label>
-                <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
+                <label for="marca">Marca: </label>
+              <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
+            </div>
+                <div class="form-group">
+                  <label for="file">Imagen: </label>
+                  <div>
+                    <input id="file" name="file" class="input-file" type="file" />
+                  </div>
               </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary mb-2">Enviar</button>

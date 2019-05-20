@@ -23,7 +23,8 @@ public class AzerothsPcsV1Application {
 	
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
-		return (args) -> {            
+		return (args) -> {
+			//storageService.deleteAll();
             storageService.init();
 		};
 	}

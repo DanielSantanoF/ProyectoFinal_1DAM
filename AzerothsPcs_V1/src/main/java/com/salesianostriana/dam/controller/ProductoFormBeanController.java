@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.salesianostriana.dam.FormBean.ProductoFormBean;
+import com.salesianostriana.dam.model.Componentes;
 import com.salesianostriana.dam.model.Producto;
 import com.salesianostriana.dam.service.ProductoService;
 
@@ -48,22 +49,35 @@ public class ProductoFormBeanController {
 		return "redirect:/admin/listaProductos";
 	}
 	
-	@PostMapping("/editarProductoFormBean/submit") 
-	public String editFormBeanProducto(@ModelAttribute("productoFormBean") ProductoFormBean productoFormBean, 
+	//COMPONENTES______________________________________________________________
+	
+	@GetMapping("/nuevoComponenteFormBean")
+	public String nuevoFormBeanComponente(Model model) {
+		model.addAttribute("componentesFormBean", new ProductoFormBean());
+		return "FormularioComponentesFormBean";
+	}
+	
+	@PostMapping("/nuevoComponenteFormBean/submit") 
+	public String submitFormBeanComponente(@ModelAttribute("componentesFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
+		
+		Componentes c = new Componentes();
 
-		Producto p = new Producto();
+		c.setNombre(productoFormBean.getNombre());
+		c.setDescripcion(productoFormBean.getDescripcion());
+		c.setPrecio(productoFormBean.getPrecio());
+		c.setEnOferta(productoFormBean.isEnOferta());
+		c.setPrecioConDescuento(productoFormBean.getPrecioConDescuento());
+		c.setCantidad(productoFormBean.getCantidad());
+		c.setDisponible(productoFormBean.isDisponible());
+		c.setMarca(productoFormBean.getMarca());
+		c.setMemoria(productoFormBean.getMemoria());
+		c.setVelocidad(productoFormBean.getVelocidad());
+		c.setSocket(productoFormBean.getSocket());
+		c.setTipoMemoria(productoFormBean.getTipoMemoria());
+		
 
-		p.setNombre(productoFormBean.getNombre());
-		p.setDescripcion(productoFormBean.getDescripcion());
-		p.setPrecio(productoFormBean.getPrecio());
-		p.setEnOferta(productoFormBean.isEnOferta());
-		p.setPrecioConDescuento(productoFormBean.getPrecioConDescuento());
-		p.setCantidad(productoFormBean.getCantidad());
-		p.setDisponible(productoFormBean.isDisponible());
-		p.setMarca(productoFormBean.getMarca());
-
-		productoService.add(p, file);
+		productoService.add(c, file);
 		
 		
 		return "redirect:/admin/listaProductos";

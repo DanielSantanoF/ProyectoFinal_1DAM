@@ -27,7 +27,7 @@
                     <div class="bottom-wrap">
                         <a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
                         <div class="price-wrap h5">
-                                <img th:if="${producto.enOferta}" src="img/enOferta.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                                <img th:if="${producto.enOferta}" src="img/enOferta.png" width="20" height="20" class="d-inline-block align-top" alt="">
                             <span class="price-new" th:text="${producto.precioConDescuento}"></span>€ <del class="price-old"  th:if="${producto.enOferta}" th:text="${producto.precio}"></del>
                         </div> <!-- price-wrap.// -->
                     </div> <!-- bottom-wrap.// -->

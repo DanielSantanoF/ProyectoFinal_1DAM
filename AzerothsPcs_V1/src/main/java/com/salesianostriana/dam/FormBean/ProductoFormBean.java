@@ -9,6 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductoFormBean {
 
+	//PRODUCTO
 	private String nombre;
 	private String descripcion;
 	private double precio;
@@ -17,5 +18,19 @@ public class ProductoFormBean {
 	private int cantidad;
 	private boolean disponible;
 	private String marca;
-	
+	//ORDENADOR
+	private String procesador;
+	private int ram;
+	private String discoDuro;
+	private String sistemaOperativo;
+	private String tipo;
+	private String dimensiones;
+	//ACCESORIO
+	//private String tipo;
+	private double capacidad;
+	//COMPONENTE
+	private String memoria;
+	private String velocidad;
+	private String socket;
+	private String tipoMemoria;
 }

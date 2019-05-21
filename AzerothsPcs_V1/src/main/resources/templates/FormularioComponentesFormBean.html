@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AZEROTHS’PCS-FormularioProductoFormBean</title>
+  <title>AZEROTHS’PCS-FormularioComponentes</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="../static/css/CSSFormularioUsuarios.css" rel="stylesheet" th:href="@{/css/CSSFormularioUsuarios.css}">
@@ -18,10 +18,9 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" enctype="multipart/form-data" th:action="@{/admin/nuevoProductoFormBean/submit}" th:object="${productoFormBean}" method="post">
-                <fieldset>
-                <div class="form-group">
-                  <label for="nombre">PRODUCTO:</label>
+            <form class="needs-validation" enctype="multipart/form-data" th:action="@{/admin/nuevoComponenteFormBean/submit}" th:object="${componentesFormBean}" method="post">
+              <div class="form-group">
+                  <label for="nombre">Componente:</label>
                   <br>
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>
@@ -34,7 +33,7 @@
                 <input class="form-control form-control-lg" type="text" name="precio" th:field="*{precio}" placeholder="Precio" />
               </div>
               <div class="form-group">
-                <label for="enOferta">MARCAR SI EL PRODUCTO ESTA EN OFERTA </label>
+                <label for="enOferta">MARCAR SI EL COMPONENTE ESTA EN OFERTA </label>
                 <input class="form-control form-control-lg" type="checkbox" name="enOferta" th:field="*{enOferta}" onchange="setEnOferta(true)"/>
               </div>
                 <div class="form-group">
@@ -46,23 +45,38 @@
                 <input class="form-control form-control-lg" type="text" name="cantidad" th:field="*{cantidad}" placeholder="Cantidad" />
               </div>
               <div class="form-group">
-                <label for="disonible">MARCAR SI EL PRODUCTO ESTA DISPONIBLE </label>
+                <label for="disonible">MARCAR SI EL COMPONENTE ESTA DISPONIBLE </label>
                 <input class="form-control form-control-lg" type="checkbox" name="disponible" th:field="*{disponible}" onchange="setDisponible(true)"/>
               </div>
               <div class="form-group">
-                <label for="marca">Marca: </label>
-              <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
-            </div>
-                <div class="form-group">
-                  <label for="file">Imagen: </label>
-                  <div>
-                    <input id="file" name="file" class="input-file" type="file" />
-                  </div>
+                    <label for="file">Imagen: </label>
+                    <div>
+                      <input id="file" name="file" class="input-file" type="file" />
+                    </div>
+                </div>
+              <div class="form-group">
+                  <label for="marca">Marca: </label>
+                <input class="form-control form-control-lg" type="text" name="marca" th:field="*{marca}" placeholder="Marca" />
               </div>
+              <div class="form-group">
+                  <label for="memoria">Memoria: </label>
+                    <input class="form-control form-control-lg" type="text" name="memoria" th:field="*{memoria}" placeholder="Memoria" />
+                  </div>
+                  <div class="form-group">
+                      <label for="velocidad">Velocidad: </label>
+                        <input class="form-control form-control-lg" type="text" name="velocidad" th:field="*{velocidad}" placeholder="Velocidad" />
+                      </div>
+                      <div class="form-group">
+                          <label for="socket">Socket: </label>
+                            <input class="form-control form-control-lg" type="text" name="socket" th:field="*{socket}" placeholder="Socket" />
+                          </div>
+                          <div class="form-group">
+                              <label for="tipoMemoria">Tipo Memoria: </label>
+                                <input class="form-control form-control-lg" type="text" name="tipoMemoria" th:field="*{tipoMemoria}" placeholder="Tipo de Memoria" />
+                              </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary mb-2">Enviar</button>
               </div>
-            </fieldset>
             </form>
           </div>
         

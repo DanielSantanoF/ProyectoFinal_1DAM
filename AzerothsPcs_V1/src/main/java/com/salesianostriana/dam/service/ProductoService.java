@@ -2,6 +2,7 @@ package com.salesianostriana.dam.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,10 +39,23 @@ public class ProductoService extends BaseService<Producto, Long, ProductoReposit
 		
 		for(int i = 0; i < partialResult.size(); i++) {
 			String fileName = partialResult.get(i).getImagen();
-			result.get(i).setImagen("/images/"+ fileName);
+			result.get(i).setImagen(fileName);
 		}
 						
 		return result;
 	}
+	
+	public List<Producto> listaProductosFormBean() {
+		
+		List<Producto> lista = productoRepository.findAll();
+		
+		lista = lista.stream().map(p ->{
+			p.setImagen("/images/" + p.getImagen());
+			return p;
+		}).collect(Collectors.toList());
+						
+		return lista;
+	}
+	
 	
 }

@@ -33,6 +33,8 @@ public class AzerothsPcsV1Application {
 	public CommandLineRunner init(UsuarioServicio servicio, BCryptPasswordEncoder passwordEncoder) {
 		return args -> {
 			
+			
+			
 			Usuario u = new Usuario();
 			u.setAdmin(false);
 			u.setNombre("Usuario");

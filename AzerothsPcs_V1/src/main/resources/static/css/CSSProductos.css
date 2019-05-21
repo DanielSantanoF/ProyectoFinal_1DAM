@@ -48,3 +48,11 @@
 .card-product .price-old {
     color: #999;
 }
+
+.estiloCarta{
+    margin-top: 1%;
+    margin-right: 0% !important;
+}
+.cienPorCien{
+    width: 100%;
+}

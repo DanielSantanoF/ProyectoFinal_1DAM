@@ -14,11 +14,11 @@
     <div th:replace="Navbar.html :: navbar"></div>
 
     <div id="menu" class="opcionesMenu">
-      <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/listaProductos}">Ver Productos</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoProductoFormBean}">Nuevo producto</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoComponenteFormBean}">Nuevo Componente</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoAccesorio}">Nuevo Accesorio</a></button>  | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoOrdenador}">Nuevo Ordenador</a></button>
+      <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/listaProductos}">Ver Productos</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoProducto}">Nuevo producto</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoComponente}">Nuevo Componente</a></button> | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoAccesorio}">Nuevo Accesorio</a></button>  | <button class="btn btn-primary mb-2 bg-light"><a th:href="@{/admin/nuevoOrdenador}">Nuevo Ordenador</a></button>
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${componentes.id != 0} ? @{/admin/editarProducto/submitComponente} : @{/admin/nuevoComponente/submit}" th:object="${componentes}" method="post">
+            <form class="needs-validation" th:action="${componentes.id != 0} ? @{/admin/editarProducto/submitComponente}" th:object="${componentes}" method="post">
               <div class="form-group">
                   <label for="nombre">Componente:</label>
                   <br>

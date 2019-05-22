@@ -27,6 +27,7 @@
                 <li class="active"><a th:href="@{/portada}">AZEROTHS’PCS</a></li>
                 <li><a th:href="@{/inicio}">Inicio</a></li>
                 <li><a th:href="@{/informacion}">Información</a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}">Iniciar Sesión</a></li>
               </ul>
             </nav>
           </div>

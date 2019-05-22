@@ -29,4 +29,5 @@ public class UsuarioServicio extends BaseService<Usuario, Long, UsuarioRepositor
 						
 		return lista;
 	}
+	
 }

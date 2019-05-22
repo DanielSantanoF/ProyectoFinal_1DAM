@@ -39,7 +39,7 @@ public class AdminUsuarioController {
 	@GetMapping("/nuevoUsuario")
 	public String mostrarFormulario(Model model) {
 		model.addAttribute("usuario", new Usuario());
-		return "FormularioUsuarios";
+		return "FormularioNuevoUsuario";
 	}
 	
 	

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.salesianostriana.dam.FormBean.ProductoFormBean;
+import com.salesianostriana.dam.model.Accesorios;
 import com.salesianostriana.dam.model.Componentes;
+import com.salesianostriana.dam.model.Ordenador;
 import com.salesianostriana.dam.model.Producto;
 import com.salesianostriana.dam.service.ProductoService;
 
@@ -22,13 +24,13 @@ public class ProductoFormBeanController {
 	@Autowired
 	private ProductoService productoService;
 	
-	@GetMapping("/nuevoProductoFormBean")
+	@GetMapping("/nuevoProducto")
 	public String nuevoFormBeanProducto(Model model) {
 		model.addAttribute("productoFormBean", new ProductoFormBean());
 		return "FormularioProductoFormBean";
 	}
 	
-	@PostMapping("/nuevoProductoFormBean/submit") 
+	@PostMapping("/nuevoProducto/submit") 
 	public String submitFormBeanProducto(@ModelAttribute("productoFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
 		
@@ -51,13 +53,13 @@ public class ProductoFormBeanController {
 	
 	//COMPONENTES______________________________________________________________
 	
-	@GetMapping("/nuevoComponenteFormBean")
+	@GetMapping("/nuevoComponente")
 	public String nuevoFormBeanComponente(Model model) {
 		model.addAttribute("componentesFormBean", new ProductoFormBean());
 		return "FormularioComponentesFormBean";
 	}
 	
-	@PostMapping("/nuevoComponenteFormBean/submit") 
+	@PostMapping("/nuevoComponente/submit") 
 	public String submitFormBeanComponente(@ModelAttribute("componentesFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
 		
@@ -78,6 +80,74 @@ public class ProductoFormBeanController {
 		
 
 		productoService.add(c, file);
+		
+		
+		return "redirect:/admin/listaProductos";
+	}
+	
+	//ACCESORIOS__________________________________________________________________________
+	
+	@GetMapping("/nuevoAccesorio")
+	public String nuevoFormBeanAccesorio(Model model) {
+		model.addAttribute("accesoriosFormBean", new ProductoFormBean());
+		return "FormularioAccesoriosFormBean";
+	}
+	
+	@PostMapping("/nuevoAccesorio/submit") 
+	public String submitFormBeanAccesorio(@ModelAttribute("accesoriosFormBean") ProductoFormBean productoFormBean, 
+			@RequestParam("file") MultipartFile file, Model model){
+		
+		Accesorios a = new Accesorios();
+
+		a.setNombre(productoFormBean.getNombre());
+		a.setDescripcion(productoFormBean.getDescripcion());
+		a.setPrecio(productoFormBean.getPrecio());
+		a.setEnOferta(productoFormBean.isEnOferta());
+		a.setPrecioConDescuento(productoFormBean.getPrecioConDescuento());
+		a.setCantidad(productoFormBean.getCantidad());
+		a.setDisponible(productoFormBean.isDisponible());
+		a.setMarca(productoFormBean.getMarca());
+		a.setTipo(productoFormBean.getTipo());
+		a.setCapacidad(productoFormBean.getCapacidad());
+		
+
+		productoService.add(a, file);
+		
+		
+		return "redirect:/admin/listaProductos";
+	}
+	
+	//ORDENAROES___________________________________________________________________________
+	
+	@GetMapping("/nuevoOrdenador")
+	public String nuevoFormBeanOrdenador(Model model) {
+		model.addAttribute("ordenadorFormBean", new ProductoFormBean());
+		return "FormularioOrdenadoresFormBean";
+	}
+	
+	@PostMapping("/nuevoOrdenador/submit") 
+	public String submitFormBeanOrdenador(@ModelAttribute("ordenadorFormBean") ProductoFormBean productoFormBean, 
+			@RequestParam("file") MultipartFile file, Model model){
+		
+		Ordenador o = new Ordenador();
+
+		o.setNombre(productoFormBean.getNombre());
+		o.setDescripcion(productoFormBean.getDescripcion());
+		o.setPrecio(productoFormBean.getPrecio());
+		o.setEnOferta(productoFormBean.isEnOferta());
+		o.setPrecioConDescuento(productoFormBean.getPrecioConDescuento());
+		o.setCantidad(productoFormBean.getCantidad());
+		o.setDisponible(productoFormBean.isDisponible());
+		o.setMarca(productoFormBean.getMarca());
+		o.setProcesador(productoFormBean.getProcesador());
+		o.setRam(productoFormBean.getRam());
+		o.setDiscoDuro(productoFormBean.getDiscoDuro());
+		o.setSistemaOperativo(productoFormBean.getSistemaOperativo());
+		o.setTipo(productoFormBean.getTipo());
+		o.setDimensiones(productoFormBean.getDimensiones());
+		
+
+		productoService.add(o, file);
 		
 		
 		return "redirect:/admin/listaProductos";

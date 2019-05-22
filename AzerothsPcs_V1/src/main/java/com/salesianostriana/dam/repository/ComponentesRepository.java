@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.salesianostriana.dam.model.Componentes;
 
-public interface ComponenteRepository extends JpaRepository<Componentes, Long>{
+public interface ComponentesRepository extends JpaRepository<Componentes, Long>{
 
 }

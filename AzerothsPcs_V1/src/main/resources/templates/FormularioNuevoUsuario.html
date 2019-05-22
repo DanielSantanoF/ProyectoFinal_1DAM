@@ -18,12 +18,11 @@
     </div>
         
     <div class="formulario">
-            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/admin/editarUsuario/submit}" th:object="${usuario}" method="post">
+            <form class="needs-validation" th:action="${usuario.id != 0} ? @{/admin/nuevoUsuario/submit}" th:object="${usuario}" method="post">
               <div class="form-group">
                   <label for="nombre">USUARIO:</label>
                   <br>
               <td><input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" /></td>
-              <td><input th:if="${usuario.password != 0}" type="hidden" name="contraseña" th:field="*{password}" /></td>
               <label for="nombre">Nombre: </label>
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>
@@ -39,9 +38,13 @@
                     <label for="email">Email: </label>
                 <input class="form-control form-control-lg" type="email" name="email" th:field="*{email}" placeholder="Email" />
               </div>
+              <div class="form-group">
+                <label for="password">Contraseña: </label>
+            <input class="form-control form-control-lg" type="password" name="contraseña" th:field="*{password}" placeholder="Contraseña" />
+          </div>
                 <div class="form-group">
                     <label for="admin">MARCAR SI EL USUARIO ES ADMIN </label>
-                <input class="form-control form-control-lg" type="checkbox" name="admin" th:field="*{admin}" onchange="setDisponible(true)"/>
+                <input class="form-control form-control-lg" type="checkbox" name="admin" th:field="*{admin}" onchange="setAdmin(true)"/>
               </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary mb-2">Enviar</button>

@@ -33,7 +33,7 @@ public class AdminProductoController {
 			return "IndexProductos";
 		}
 		
-		
+		/*
 		 //Método que atiende la petición de mostrar formulario
 		@GetMapping("/nuevoProducto")
 		public String mostrarFormulario(Model model) {
@@ -46,7 +46,7 @@ public class AdminProductoController {
 		public String procesarFormulario(@ModelAttribute("producto") Producto p) {
 			productoServicio.save(p);
 			return "redirect:/admin/listaProductos";
-		}
+		}*/
 		
 		 //Método que atiende la petición de mostrar el formulario de edición de un usuario
 		@GetMapping("/editarProducto/{id}")
@@ -86,7 +86,7 @@ public class AdminProductoController {
 		}
 		
 		//COMPONENTES__________________________________________________________________
-		
+		/*
 		@GetMapping("/nuevoComponente")
 		public String mostrarFormularioComponente(Model model) {
 			model.addAttribute("componentes", new Componentes());
@@ -97,7 +97,7 @@ public class AdminProductoController {
 		public String procesarFormularioComponentes(@ModelAttribute("componentes") Componentes c) {
 			productoServicio.save(c);
 			return "redirect:/admin/listaProductos";
-		}
+		}*/
 		
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitComponente")
@@ -107,7 +107,7 @@ public class AdminProductoController {
 		}
 				
 		//ACCESORIOS_____________________________________________________________________
-		
+		/*
 		@GetMapping("/nuevoAccesorio")
 		public String mostrarFormularioAccesorio(Model model) {
 			model.addAttribute("accesorios", new Accesorios());
@@ -118,7 +118,7 @@ public class AdminProductoController {
 		public String procesarFormularioAccesorio(@ModelAttribute("accesorios") Accesorios a) {
 			productoServicio.save(a);
 			return "redirect:/admin/listaProductos";
-		}
+		}*/
 		
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitAccesorio")
@@ -128,7 +128,7 @@ public class AdminProductoController {
 		}
 		
 		//ORDENADORES________________________________________________________________________
-		
+		/*
 		@GetMapping("/nuevoOrdenador")
 		public String mostrarFormularioOrdenador(Model model) {
 			model.addAttribute("ordenador", new Ordenador());
@@ -139,7 +139,7 @@ public class AdminProductoController {
 		public String procesarFormularioOrdenador(@ModelAttribute("ordenador") Ordenador o) {
 			productoServicio.save(o);
 			return "redirect:/admin/listaProductos";
-		}
+		}*/
 		
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitOrdenador")

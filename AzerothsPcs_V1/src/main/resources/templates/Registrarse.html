@@ -19,7 +19,7 @@
                   <label for="nombre">¡Registrate en nuestra página para poder realizar pedidos!</label>
                   <br>
               <td><input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" /></td>
-              <td><input type="hidden" name="admin" th:field="*{admin}" onchange="setAdmin(false)"/></td>
+              <td><input type="hidden" name="admin" th:field="*{admin}" onchange="setDisponible(false)"/></td>
               <label for="nombre">Nombre: </label>
                 <input class="form-control form-control-lg" type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" />
               </div>

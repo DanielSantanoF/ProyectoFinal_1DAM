@@ -24,3 +24,8 @@ insert into componentes (memoria, velocidad, socket, tipo_Memoria, id) values ('
 insert into accesorios (tipo, capacidad, id) values ('Alfombrilla', '0.0', 19);
 insert into ordenador (procesador, ram, disco_Duro, sistema_Operativo, tipo, dimensiones, id) values ('Intel Core i5-9600K 3.7Ghz', '16', 'HDD 2TB SATA3 SSD 240GB SATA3', 'Windows 10', 'SobreMesa', '405x455x210mm (An x Al x Pr)', 20);
 
+insert into producto (id, nombre, descripcion, precio, en_Oferta, precio_Con_Descuento, cantidad, disponible, imagen, marca) values (NEXTVAL('hibernate_sequence'), 'Logitech G430 Gaming', 'Auriculares gaming Logitech', '69.99', false, '69.99', '45', true, 'logitechg430.jpg', 'Logitech');
+insert into accesorios (tipo, capacidad, id) values ('Auriculares', '0.0', 20);
+
+insert into producto (id, nombre, descripcion, precio, en_Oferta, precio_Con_Descuento, cantidad, disponible, imagen, marca) values (NEXTVAL('hibernate_sequence'), 'Tacens Mars MM218', 'Raton óptico con 10000dpi', '69.99', false, '18', '780', true, 'tacensMars.jpg', 'Mars');
+insert into accesorios (tipo, capacidad, id) values ('Raton', '0.0', 21);

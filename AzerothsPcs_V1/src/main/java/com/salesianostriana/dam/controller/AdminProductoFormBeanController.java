@@ -19,7 +19,7 @@ import com.salesianostriana.dam.service.ProductoService;
 
 @Controller
 @RequestMapping("/admin")
-public class ProductoFormBeanController {
+public class AdminProductoFormBeanController {
 
 	@Autowired
 	private ProductoService productoService;

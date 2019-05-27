@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -24,19 +24,17 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>DNI</th>
-                    <!-- <th>Contraseña</th> -->
                     <th>Email</th>
                     <th>Admin</th>
                     <th>Operaciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="usuario : ${lista}">
+                <tr th:each="usuario : ${usuarios}">
                     <td th:text="${usuario.id}">1</td>
                     <td th:text="${usuario.nombre}">Nombre</td>
                     <td th:text="${usuario.apellidos}">Apellidos</td>
                     <td th:text="${usuario.dni}">DNI</td>
-                    <!-- <td th:text="${usuario.password}">Contraseña</td> -->
                     <td th:text="${usuario.email}">Email</td>
                     <td th:text="${usuario.admin}">Admin</td>
                     <td>
@@ -48,7 +46,54 @@
             </tbody>
         </table>
 
+        <div class="row">
+          <div class="form-group col-md-1">
+            <select class="form-control pagination" id="pageSizeSelect">
+              <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+                th:value="${pageSize}"
+                th:selected="${pageSize} == ${selectedPageSize}"></option>
+            </select>
+          </div>
+          <div th:if="${usuarios.totalPages != 1}"
+            class="form-group col-md-11 pagination-centered">
+            <ul class="pagination">
+              <!-- Si el número de página es cero, deshabilitamos el enlace -->
+              <li th:class="${usuarios.number == 0} ? disabled">
+                <!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
+                <a class="pageLink"
+                th:href="@{/admin/listaUsuarios(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
+              </li>
+              <!-- Si el número de página es cero, deshabilitamos el enlace -->
+              <li th:class="${usuarios.number == 0} ? disabled">
+                <!-- Este enlace nos debe llevar a la página anterior, con el tamaño de página actual -->						
+                <a class="pageLink" th:href="@{/admin/listaUsuarios(pageSize=${selectedPageSize}, page=${usuarios.number})}">&larr;</a>
+              </li>
+              <!-- Este bucle genera los enlaces para las demás páginas -->
+              <li
+                th:class="${usuarios.number == (page - 1)} ? 'active pointer-disabled'"
+                th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                <a class="pageLink"
+                th:href="@{/admin/listaUsuarios(pageSize=${selectedPageSize}, page=${page})}"
+                th:text="${page}"></a>
+              </li>
+              <!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
+              <li
+                th:class="${usuarios.number + 1 == usuarios.totalPages} ? disabled">
+                <a class="pageLink"
+                th:href="@{/admin/listaUsuarios(pageSize=${selectedPageSize}, page=${usuarios.number + 2})}">&rarr;</a>
+              </li>
+              <!-- Enlace a la última página; si estamos en la última queda desabilitado  -->				
+              <li
+                th:class="${usuarios.number + 1 == usuarios.totalPages} ? disabled">
+                <a class="pageLink"
+                th:href="@{/admin/listaUsuarios(pageSize=${selectedPageSize}, page=${usuarios.totalPages})}">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
     <div th:replace="Footer.html :: footer"></div>
+    
     
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -57,5 +102,5 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <script type="text/javascript" src="../static/js/indexUsuarios.js" th:src="@{/js/indexUsuarios.js}"></script>
 </html>

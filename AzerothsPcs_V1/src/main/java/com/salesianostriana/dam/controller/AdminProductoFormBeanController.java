@@ -17,19 +17,38 @@ import com.salesianostriana.dam.model.Ordenador;
 import com.salesianostriana.dam.model.Producto;
 import com.salesianostriana.dam.service.ProductoService;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase para controlar productos y subida de su imagen
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminProductoFormBeanController {
 
+	/**
+	 * Servicio necesario para el controlador
+	 */
 	@Autowired
 	private ProductoService productoService;
 	
+	/**
+	 * Manejo de crear un nuevo producto
+	 * @param model
+	 * @return view
+	 */
 	@GetMapping("/nuevoProducto")
 	public String nuevoFormBeanProducto(Model model) {
 		model.addAttribute("productoFormBean", new ProductoFormBean());
 		return "FormularioProductoFormBean";
 	}
 	
+	/**
+	 * Manejo de crear un nuevo producto y guardarlo
+	 * @param productoFormBean
+	 * @param file
+	 * @param model
+	 * @return view
+	 */
 	@PostMapping("/nuevoProducto/submit") 
 	public String submitFormBeanProducto(@ModelAttribute("productoFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
@@ -53,12 +72,24 @@ public class AdminProductoFormBeanController {
 	
 	//COMPONENTES______________________________________________________________
 	
+	/**
+	 * Manejo de crear un nuevo componente
+	 * @param model
+	 * @return view
+	 */
 	@GetMapping("/nuevoComponente")
 	public String nuevoFormBeanComponente(Model model) {
 		model.addAttribute("componentesFormBean", new ProductoFormBean());
 		return "FormularioComponentesFormBean";
 	}
 	
+	/**
+	 * Manejo de crear un nuevo componente y guardarlo
+	 * @param productoFormBean
+	 * @param file
+	 * @param model
+	 * @return view
+	 */
 	@PostMapping("/nuevoComponente/submit") 
 	public String submitFormBeanComponente(@ModelAttribute("componentesFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
@@ -87,12 +118,24 @@ public class AdminProductoFormBeanController {
 	
 	//ACCESORIOS__________________________________________________________________________
 	
+	/**
+	 * Manejo de crear un nuevo accesorio
+	 * @param model
+	 * @return view
+	 */
 	@GetMapping("/nuevoAccesorio")
 	public String nuevoFormBeanAccesorio(Model model) {
 		model.addAttribute("accesoriosFormBean", new ProductoFormBean());
 		return "FormularioAccesoriosFormBean";
 	}
 	
+	/**
+	 * Manejo de crear un nuevo accesorio y guardarlo
+	 * @param productoFormBean
+	 * @param file
+	 * @param model
+	 * @return view
+	 */
 	@PostMapping("/nuevoAccesorio/submit") 
 	public String submitFormBeanAccesorio(@ModelAttribute("accesoriosFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){
@@ -119,12 +162,24 @@ public class AdminProductoFormBeanController {
 	
 	//ORDENAROES___________________________________________________________________________
 	
+	/**
+	 * Manejo de crear un nuevo ordenador
+	 * @param model
+	 * @return view
+	 */
 	@GetMapping("/nuevoOrdenador")
 	public String nuevoFormBeanOrdenador(Model model) {
 		model.addAttribute("ordenadorFormBean", new ProductoFormBean());
 		return "FormularioOrdenadoresFormBean";
 	}
 	
+	/**
+	 * Manejo de crear un nuevo ordenador y guardarlo
+	 * @param productoFormBean
+	 * @param file
+	 * @param model
+	 * @return view
+	 */
 	@PostMapping("/nuevoOrdenador/submit") 
 	public String submitFormBeanOrdenador(@ModelAttribute("ordenadorFormBean") ProductoFormBean productoFormBean, 
 			@RequestParam("file") MultipartFile file, Model model){

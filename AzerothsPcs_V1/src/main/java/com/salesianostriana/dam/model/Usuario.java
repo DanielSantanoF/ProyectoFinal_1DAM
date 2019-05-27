@@ -13,11 +13,18 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase anotada con @Data clase modelo de usuarios
+ */
 @Data @NoArgsConstructor
 @Entity
 @Table(name = "usuario")
 public class Usuario {
 
+	/**
+	 * Atributos de la clase
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "id")
@@ -33,10 +40,22 @@ public class Usuario {
 	
 	private boolean admin;
 	
+	/**
+	 * Datos de compra del usuario
+	 */
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "datosDeCompra_id", referencedColumnName = "id")
 	private DatosDeCompra datosDeCompra;
 
+	/**
+	 * Constructor sin el id
+	 * @param nombre
+	 * @param apellidos
+	 * @param dni
+	 * @param contraseña
+	 * @param email
+	 * @param admin
+	 */
 	public Usuario(String nombre, String apellidos, String dni, String contraseña, String email,
 			boolean admin) {
 		
@@ -48,6 +67,16 @@ public class Usuario {
 		this.admin = admin;
 	}
 
+	/**
+	 * Constructor sin el id y con los datos de compra
+	 * @param nombre
+	 * @param apellidos
+	 * @param dni
+	 * @param password
+	 * @param email
+	 * @param admin
+	 * @param datosDeCompra
+	 */
 	public Usuario(String nombre, String apellidos, String dni, String password, String email, boolean admin,
 			DatosDeCompra datosDeCompra) {
 		super();
@@ -59,9 +88,5 @@ public class Usuario {
 		this.admin = admin;
 		this.datosDeCompra = datosDeCompra;
 	}
-	
-	
-
-
-	
+		
 }

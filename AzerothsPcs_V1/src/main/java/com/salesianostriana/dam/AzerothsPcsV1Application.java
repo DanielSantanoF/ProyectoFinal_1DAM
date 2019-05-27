@@ -15,14 +15,27 @@ import com.salesianostriana.dam.service.UsuarioServicio;
 import com.salesianostriana.dam.storage.StorageProperties;
 import com.salesianostriana.dam.storage.StorageService;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase principal que hace arrancar la aplicación
+ */
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
 public class AzerothsPcsV1Application {
 
+	/**
+	 * El main de la aplicación
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(AzerothsPcsV1Application.class, args);
 	}
 	
+	/**
+	 * Usamos este bean para instanciar el StorageService necesario para la subida de imagenes a productos
+	 * @param storageService
+	 * @return args El storageService.init
+	 */
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
 		return (args) -> {
@@ -31,6 +44,12 @@ public class AzerothsPcsV1Application {
 		};
 	}
 
+	/**
+	 * Usamos este bean para encriptar todas las contraseñas de los usuarios
+	 * @param servicio
+	 * @param passwordEncoder
+	 * @return args las contraseñas ya modificadas
+	 */
 	@Bean
 	public CommandLineRunner init(UsuarioServicio servicio, BCryptPasswordEncoder passwordEncoder) {
 		return args -> {

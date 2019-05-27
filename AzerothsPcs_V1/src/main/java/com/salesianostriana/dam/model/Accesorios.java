@@ -8,6 +8,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase anotada con @Data y hija de producto es un tipo de producto
+ */
 @Data 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +20,9 @@ import lombok.ToString;
 @Entity
 public class Accesorios extends Producto{
 
+	/**
+	 * Atributos de la clase
+	 */
 	private String tipo;
 	private double capacidad;
 }

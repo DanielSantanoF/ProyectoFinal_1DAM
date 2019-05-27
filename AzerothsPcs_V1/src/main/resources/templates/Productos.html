@@ -15,7 +15,7 @@
 
     <div class="container">
     <div class="row cienPorCien">
-            <div class="col-md-4 estiloCarta" th:each="producto : ${lista}">
+            <div class="col-md-4 estiloCarta" th:each="producto : ${productos}">
                 <figure class="card card-product">
                     <div class="img-wrap"><img th:src="${producto.imagen}"></div>
                     <figcaption class="info-wrap">
@@ -37,6 +37,52 @@
             </div> 
             <!--container.//-->
 
+            <div class="row">
+                <div class="form-group col-md-1">
+                  <select class="form-control pagination" id="pageSizeSelect">
+                    <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+                      th:value="${pageSize}"
+                      th:selected="${pageSize} == ${selectedPageSize}"></option>
+                  </select>
+                </div>
+                <div th:if="${productos.totalPages != 1}"
+                  class="form-group col-md-11 pagination-centered">
+                  <ul class="pagination">
+                    <!-- Si el número de página es cero, deshabilitamos el enlace -->
+                    <li th:class="${productos.number == 0} ? disabled">
+                      <!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
+                      <a class="pageLink"
+                      th:href="@{/productos(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
+                    </li>
+                    <!-- Si el número de página es cero, deshabilitamos el enlace -->
+                    <li th:class="${productos.number == 0} ? disabled">
+                      <!-- Este enlace nos debe llevar a la página anterior, con el tamaño de página actual -->						
+                      <a class="pageLink" th:href="@{/productos(pageSize=${selectedPageSize}, page=${productos.number})}">&larr;</a>
+                    </li>
+                    <!-- Este bucle genera los enlaces para las demás páginas -->
+                    <li
+                      th:class="${productos.number == (page - 1)} ? 'active pointer-disabled'"
+                      th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                      <a class="pageLink"
+                      th:href="@{/productos(pageSize=${selectedPageSize}, page=${page})}"
+                      th:text="${page}"></a>
+                    </li>
+                    <!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
+                    <li
+                      th:class="${productos.number + 1 == productos.totalPages} ? disabled">
+                      <a class="pageLink"
+                      th:href="@{/productos(pageSize=${selectedPageSize}, page=${productos.number + 2})}">&rarr;</a>
+                    </li>
+                    <!-- Enlace a la última página; si estamos en la última queda desabilitado  -->				
+                    <li
+                      th:class="${productos.number + 1 == productos.totalPages} ? disabled">
+                      <a class="pageLink"
+                      th:href="@{/productos(pageSize=${selectedPageSize}, page=${productos.totalPages})}">&raquo;</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
     <div th:replace="Footer.html :: footer"></div>
     
 </body>
@@ -46,4 +92,5 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../static/js/appProducto.js" th:src="@{/js/appProducto.js}"></script>
 </html>

@@ -14,27 +14,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.model.Usuario;
 import com.salesianostriana.dam.service.UsuarioServicio;
 
-
+/**
+ * @author Daniel Santano Fernández
+ * Clase para controlar la parte de usuarios del administrador
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminUsuarioController {
 
+	/**
+	 * El servicio necesario para el controler y el encriptador de la contraseña
+	 */
 	private UsuarioServicio usuarioServicio;
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
+	/**
+	 * Contructor del servicio
+	 * @param servicio
+	 */
 	public AdminUsuarioController(UsuarioServicio servicio) {
 		this.usuarioServicio = servicio;
 	}
 	
-	
-	 //Método que gestiona la petición "índice" o de listado
-	@GetMapping({"/listaUsuarios"})
-	public String listarTodos(Model model) {
-		model.addAttribute("lista", usuarioServicio.findAll());
-		return "IndexUsuarios";
-	}
-	
-	
+	/**
+	 * Manejo de crear un nuevo ususario
+	 * @param model
+	 * @return view
+	 */
 	 //Método que atiende la petición de mostrar formulario
 	@GetMapping("/nuevoUsuario")
 	public String mostrarFormulario(Model model) {
@@ -42,7 +48,11 @@ public class AdminUsuarioController {
 		return "FormularioNuevoUsuario";
 	}
 	
-	
+	/**
+	 * Manejo de crear un nuevo usuario y guardarlo
+	 * @param u
+	 * @return view
+	 */
 	 //Método que procesa la respuesta del formulario
 	@PostMapping("/nuevoUsuario/submit")
 	public String procesarFormulario(@ModelAttribute("usuario") Usuario u) {
@@ -51,6 +61,12 @@ public class AdminUsuarioController {
 		return "redirect:/admin/listaUsuarios";
 	}
 	
+	/**
+	 * Manejo de editar un usuario
+	 * @param id
+	 * @param model
+	 * @return view
+	 */
 	 //Método que atiende la petición de mostrar el formulario de edición de un usuario
 	@GetMapping("/editarUsuario/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
@@ -68,7 +84,11 @@ public class AdminUsuarioController {
 			
 	}
 	
-	
+	/**
+	 * Manejo de editar el usuario y guardarlo
+	 * @param u
+	 * @return view
+	 */
 	 //Método que procesa la respuesta del formulario al editar
 	@PostMapping("/editarUsuario/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("usuario") Usuario u) {
@@ -76,6 +96,11 @@ public class AdminUsuarioController {
 		return "redirect:/admin/listaUsuarios";
 	}
 	
+	/**
+	 * Manejo de borrar un usuario
+	 * @param id
+	 * @return view
+	 */
 	//Método que borrar un usuario por su Id
 	@GetMapping("/borrarUsuario/{id}")
 	public String borrar(@PathVariable("id") long id) {
@@ -83,6 +108,12 @@ public class AdminUsuarioController {
 		return "redirect:/admin/listaUsuarios";
 	}
 	
+	/**
+	 * Manejo de editar la contraseña del usuario
+	 * @param id
+	 * @param model
+	 * @return view
+	 */
 	//Método que atiende la petición de mostrar el formulario de edición de un usuario
 		@GetMapping("/editarUsuarioPassword/{id}")
 		public String mostrarFormularioEdicionPassword(@PathVariable("id") long id, Model model) {
@@ -100,6 +131,11 @@ public class AdminUsuarioController {
 				
 		}
 	
+		/**
+		 * Manejo de editar la contraseña del usuario y guardarla
+		 * @param u
+		 * @return view
+		 */
 	 //Método que procesa la respuesta del formulario al editar
 	@PostMapping("/editarUsuarioPassword/submit")
 	public String procesarFormularioEdicionPassword(@ModelAttribute("usuario") Usuario u) {

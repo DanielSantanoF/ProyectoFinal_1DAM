@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase base de todos los servicios con metodos generales para las entidades
+ */
 public abstract class BaseService<T, ID, R extends JpaRepository<T, ID>> {
 
 	@Autowired

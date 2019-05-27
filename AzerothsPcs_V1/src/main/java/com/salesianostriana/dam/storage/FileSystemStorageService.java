@@ -17,16 +17,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase del FilySystemStorageService para subida de imagenes a productos
+ */
 @Service
 public class FileSystemStorageService implements StorageService {
 
+	/**
+	 * Lo necesario para el servicio
+	 */
     private final Path rootLocation;
 
+    /**
+     * Constructor 
+     * @param properties
+     */
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         this.rootLocation = Paths.get(properties.getLocation());
     }
 
+    /**
+     * Metodo para darle hora y fecha al nombre de la imagen para poder subir imagenes con el mismo nombre asi nunca se repetira
+     */
     @Override
     public String store(MultipartFile file) {
         try {
@@ -50,6 +64,9 @@ public class FileSystemStorageService implements StorageService {
         
     }
 
+    /**
+     * Metodo que carga todos los path
+     */
     @Override
     public Stream<Path> loadAll() {
         try {
@@ -62,11 +79,17 @@ public class FileSystemStorageService implements StorageService {
 
     }
 
+    /**
+     * Metodo que carga los path
+     */
     @Override
     public Path load(String filename) {
         return rootLocation.resolve(filename);
     }
 
+    /**
+     * Metodo que carga el string de la imagen como un recurso
+     */
     @Override
     public Resource loadAsResource(String filename) {
         try {
@@ -84,11 +107,17 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
+    /**
+     * Metodo para eliminarlo todo
+     */
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    /**
+     * Metodo para iniciar el storage
+     */
     @Override
     public void init() {
         try {

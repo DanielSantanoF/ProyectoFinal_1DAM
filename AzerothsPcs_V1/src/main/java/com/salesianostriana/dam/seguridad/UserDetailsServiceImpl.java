@@ -11,15 +11,29 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.model.Usuario;
 import com.salesianostriana.dam.service.UsuarioServicio;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase que implementa la seguridad para el login de usuarios
+ */
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+	/**
+	 * Lo necesario para la clase servicio en este caso
+	 */
 	UsuarioServicio usuarioServicio;
 	
+	/**
+	 * Contructor del servicio
+	 * @param servicio
+	 */
 	public UserDetailsServiceImpl(UsuarioServicio servicio) {
 		this.usuarioServicio = servicio;
 	}
 	
+	/**
+	 * Clase para indicar con el boolean de admin el rol del usuario
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		

@@ -14,40 +14,34 @@ import com.salesianostriana.dam.model.Ordenador;
 import com.salesianostriana.dam.model.Producto;
 import com.salesianostriana.dam.service.ProductoService;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase para controlar los productos por parte del administrador
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminProductoController {
 
+	/**
+	 * El servicio necesario para el controlador
+	 */
 	private ProductoService productoServicio;
 	
-	
+	/**
+	 * El constructor del servicio
+	 * @param productoServicio
+	 */
 		public AdminProductoController(ProductoService productoServicio) {
 		super();
 		this.productoServicio = productoServicio;
 	}
 
-		//Método que gestiona la petición "índice" o de listado
-		@GetMapping({"/listaProductos"})
-		public String listarTodos(Model model) {
-			model.addAttribute("lista", productoServicio.findAll());
-			return "IndexProductos";
-		}
-		
-		/*
-		 //Método que atiende la petición de mostrar formulario
-		@GetMapping("/nuevoProducto")
-		public String mostrarFormulario(Model model) {
-			model.addAttribute("producto", new Producto());
-			return "FormularioProductos";
-		}
-		
-		 //Método que procesa la respuesta del formulario
-		@PostMapping("/nuevoProducto/submit")
-		public String procesarFormulario(@ModelAttribute("producto") Producto p) {
-			productoServicio.save(p);
-			return "redirect:/admin/listaProductos";
-		}*/
-		
+		/**
+		 * Manejo de la peticion de editar producto
+		 * @param id
+		 * @param model
+		 * @return view
+		 */
 		 //Método que atiende la petición de mostrar el formulario de edición de un usuario
 		@GetMapping("/editarProducto/{id}")
 		public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
@@ -70,7 +64,11 @@ public class AdminProductoController {
 				
 		}
 		
-		
+		/**
+		 * Manejo de la peticion de editar un producto
+		 * @param p
+		 * @return view
+		 */
 		 //Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submit")
 		public String procesarFormularioEdicion(@ModelAttribute("producto") Producto p) {
@@ -78,6 +76,11 @@ public class AdminProductoController {
 			return "redirect:/admin/listaProductos";
 		}
 		
+		/**
+		 * Manejo de la peticion de borrar un producto
+		 * @param id
+		 * @return view
+		 */
 		//Método que borrar un usuario por su Id
 		@GetMapping("/borrarProducto/{id}")
 		public String borrar(@PathVariable("id") long id) {
@@ -86,19 +89,12 @@ public class AdminProductoController {
 		}
 		
 		//COMPONENTES__________________________________________________________________
-		/*
-		@GetMapping("/nuevoComponente")
-		public String mostrarFormularioComponente(Model model) {
-			model.addAttribute("componentes", new Componentes());
-			return "FormularioComponentes";
-		}
 		
-		@PostMapping("/nuevoComponente/submit")
-		public String procesarFormularioComponentes(@ModelAttribute("componentes") Componentes c) {
-			productoServicio.save(c);
-			return "redirect:/admin/listaProductos";
-		}*/
-		
+		/**
+		 * Manejo de editar un componente y guardarlo
+		 * @param c
+		 * @return view
+		 */
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitComponente")
 		public String procesarFormularioEdicionComponentes(@ModelAttribute("componentes") Componentes c) {
@@ -107,19 +103,12 @@ public class AdminProductoController {
 		}
 				
 		//ACCESORIOS_____________________________________________________________________
-		/*
-		@GetMapping("/nuevoAccesorio")
-		public String mostrarFormularioAccesorio(Model model) {
-			model.addAttribute("accesorios", new Accesorios());
-			return "FormularioAccesorios";
-		}
 		
-		@PostMapping("/nuevoAccesorio/submit")
-		public String procesarFormularioAccesorio(@ModelAttribute("accesorios") Accesorios a) {
-			productoServicio.save(a);
-			return "redirect:/admin/listaProductos";
-		}*/
-		
+		/**
+		 * Manejo de editar un accesorio y guardarlo
+		 * @param a
+		 * @return view
+		 */
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitAccesorio")
 		public String procesarFormularioEdicionAccesorio(@ModelAttribute("accesorios") Accesorios a) {
@@ -128,19 +117,12 @@ public class AdminProductoController {
 		}
 		
 		//ORDENADORES________________________________________________________________________
-		/*
-		@GetMapping("/nuevoOrdenador")
-		public String mostrarFormularioOrdenador(Model model) {
-			model.addAttribute("ordenador", new Ordenador());
-			return "FormularioOrdenadores";
-		}
 		
-		@PostMapping("/nuevoOrdenador/submit")
-		public String procesarFormularioOrdenador(@ModelAttribute("ordenador") Ordenador o) {
-			productoServicio.save(o);
-			return "redirect:/admin/listaProductos";
-		}*/
-		
+		/**
+		 * Manejo de editar un ordenador y guardarlo
+		 * @param o
+		 * @return view
+		 */
 		//Método que procesa la respuesta del formulario al editar
 		@PostMapping("/editarProducto/submitOrdenador")
 		public String procesarFormularioEdicionOrdenadores(@ModelAttribute("ordenador") Ordenador o) {

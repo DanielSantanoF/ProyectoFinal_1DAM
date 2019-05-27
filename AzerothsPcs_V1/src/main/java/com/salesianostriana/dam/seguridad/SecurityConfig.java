@@ -9,22 +9,39 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase donde configuramos la seguridad
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	/**
+	 * Lo necesario para la clase
+	 */
 	private UserDetailsService userDetailsService;
-	
 
+	/**
+	 * Constructor del servicio
+	 * @param userDetailsService
+	 */
 	public SecurityConfig(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 
+	/**
+	 * Metodo que devuelve el encriptador de contraseñas
+	 * @return encriptador
+	 */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
+	/**
+	 * Configuramos la seguridad para el login
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
@@ -32,6 +49,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 
+	/**
+	 * Configuramos los permisos segun el rol y el acceso a la web segun roles tambien indicamos 
+	 * el login logout y accesodenegado
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http

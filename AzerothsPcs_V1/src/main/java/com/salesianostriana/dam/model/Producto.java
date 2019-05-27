@@ -10,12 +10,19 @@ import javax.persistence.InheritanceType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Daniel Santano Fernández
+ * Clase anotada con @Data clase padre de productos
+ */
 @Data 
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Producto {
 
+	/**
+	 * Atributos de la clase
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -30,6 +37,18 @@ public class Producto {
 	private String imagen;
 	private String marca;
 	
+	/**
+	 * Constructor sin el id 
+	 * @param nombre
+	 * @param descripcion
+	 * @param precio
+	 * @param enOferta
+	 * @param precioConDescuento
+	 * @param cantidad
+	 * @param disponible
+	 * @param imagen
+	 * @param marca
+	 */
 	public Producto(String nombre, String descripcion, double precio, boolean enOferta, double precioConDescuento, int cantidad,
 			boolean disponible, String imagen, String marca) {
 		super();

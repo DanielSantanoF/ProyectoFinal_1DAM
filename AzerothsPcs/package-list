@@ -1,0 +1,10 @@
+com.salesianostriana.dam
+com.salesianostriana.dam.FormBean
+com.salesianostriana.dam.azerothspcs_v1
+com.salesianostriana.dam.configuracion
+com.salesianostriana.dam.controller
+com.salesianostriana.dam.model
+com.salesianostriana.dam.repository
+com.salesianostriana.dam.seguridad
+com.salesianostriana.dam.service
+com.salesianostriana.dam.storage
